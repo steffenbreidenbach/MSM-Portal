@@ -4,7 +4,7 @@ var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
     /////////////////
-
+/*
     var Connection = require('tedious').Connection;
          var config = {
              userName: 'MSM_Promotion_Admin',
@@ -43,7 +43,7 @@ var server = http.createServer(function(request, response) {
 
             });
             connection.execSql(request);
-        }
+        } */
         response.end("test");
     });
 
