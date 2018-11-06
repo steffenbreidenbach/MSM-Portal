@@ -35,7 +35,7 @@ var server = http.createServer(function(request, response) {
               }
             });
             console.log(result);
-            response.end(result);
+            response.send(result);
             result ="";
         });
 
