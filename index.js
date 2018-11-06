@@ -21,7 +21,7 @@ var server = http.createServer(function(request, response) {
              password: 'Seebaer181050',
              server: 'msm.database.windows.net',
              // If you are on Microsoft Azure, you need this:
-             options: {encrypt: true, database: 'AdventureWorks'}
+             options: {encrypt: true, database: 'MSM_Promotion_Vorversion'}
          };
          var connection = new Connection(config);
             connection.on('connect', function(err) {
@@ -29,9 +29,11 @@ var server = http.createServer(function(request, response) {
                 console.log("Connected");
                 executeStatement();
             });
+        var Request = require('tedious').Request;
+        var TYPES = require('tedious').TYPES;
 
         function executeStatement() {
-            request = new Request("SELECT * FROM LeistungsKundenAccount", function(err) {
+            request = new Request("SELECT * FROM LeistungsKundeAccount", function(err) {
             if (err) {
                 console.log(err);}
             });
