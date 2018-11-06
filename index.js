@@ -35,7 +35,6 @@ var server = http.createServer(function(request, response) {
                   }
                 });
                 console.log(result);
-                response.send(result);
                 result ="";
             });
 
@@ -45,7 +44,7 @@ var server = http.createServer(function(request, response) {
             });
             connection.execSql(request);
         }
-
+        response.end("test");
     });
 
     var port = process.env.PORT || 1337;
