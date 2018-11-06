@@ -3,8 +3,18 @@ var http = require('http');
 var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
-    /////////////////
-/*
+        connectServer();
+        response.end("test");
+    });
+
+
+    var port = process.env.PORT || 1337;
+    server.listen(port);
+
+    console.log("Server running at http://localhost:%d", port);
+
+    function connectServer () {
+
     var Connection = require('tedious').Connection;
          var config = {
              userName: 'MSM_Promotion_Admin',
@@ -43,11 +53,5 @@ var server = http.createServer(function(request, response) {
 
             });
             connection.execSql(request);
-        } */
-        response.end("test");
-    });
-
-    var port = process.env.PORT || 1337;
-    server.listen(port);
-
-    console.log("Server running at http://localhost:%d", port);
+        }
+    }
