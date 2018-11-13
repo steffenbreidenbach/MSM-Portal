@@ -15,7 +15,7 @@ server.listen(port);
 console.log("Server running at http://localhost:%d", port);
 
 
-function getDataFromSQL() {
+/*function getDataFromSQL() {
     var Connection = require('tedious').Connection;
     var config = {
         userName: 'MSM_Promotion_Admin',
