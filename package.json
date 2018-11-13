@@ -11,5 +11,9 @@
     "dependencies": {
         "express": "^4.16.4",
         "tedious": "^3.0.1"
+    },
+
+    "engines": {
+        "node": "8.9.4"
     }
 }
