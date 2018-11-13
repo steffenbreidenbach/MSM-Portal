@@ -1,20 +1,4 @@
-/*var http = require('http');
-var Request = require('tedious').Request;
 
-var server = http.createServer(function(request, response) {
-
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
-
-});
-
-var port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
-
-
-*/
 var express = require("express");
 var app = express();
 var Request = require('tedious').Request;
@@ -36,9 +20,10 @@ app.get("/login",function(req,res){
 });
 
 app.get("/login/:name",function(req,res){
-    var data = getDataFromSQL();
+   // var data = getDataFromSQL();
     //console.log(data);
-    // res.render("login",{name: req.params.name, data : data});
+    var data = ["jonathan","as","hhdahds","hdasd"];
+     res.render("login",{name: req.params.name, data : data});
 });
 
 
@@ -60,8 +45,8 @@ function getDataFromSQL() {
             // If no error, then good to go...
             console.log("connected");
             //    executeStatement();
-            queryDatabase();
-            //   queryDatabase2();
+             queryDatabase();
+              //queryDatabase2();
         }
     );
 
@@ -80,7 +65,7 @@ function getDataFromSQL() {
 
     function queryDatabase()
     { console.log('Reading rows from the Table...');
-
+        var data = [];
         // Read all rows from table
         request = new Request(
             "SELECT * from dbo.LeistungskundeAccount",
@@ -93,10 +78,12 @@ function getDataFromSQL() {
 
         request.on('row', function(columns) {
             columns.forEach(function(column) {
+                data.push(column.value);
                 console.log("%s\t%s", column.metadata.colName, column.value);
             });
         });
         connection.execSql(request);
+        return Math.PI;
     }
 
     function queryDatabase2() {
