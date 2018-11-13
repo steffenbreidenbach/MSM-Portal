@@ -19,6 +19,10 @@ app.get("/login",function(req,res){
     res.sendFile(__dirname + "/public/html/login.html");
 });
 
+app.get("/steffen",function(req,res){
+    res.sendFile(__dirname+"/public/html/test.html");
+});
+
 app.get("/login/:name",function(req,res){
    // var data = getDataFromSQL();
     //console.log(data);
