@@ -28,7 +28,8 @@ function getDataFromSQL() {
 
     connection.on('connect', function(err) {
             // If no error, then good to go...
-            console.log("connected");
+            console.log("connected")
+            response.end(err);
             //    executeStatement();
             queryDatabase();
             //   queryDatabase2();
