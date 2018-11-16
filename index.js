@@ -7,7 +7,7 @@ var Request = require('tedious').Request;
 app.set("view engine","ejs");
 
 app.get("/", function(req,res){
-    res.sendFile(__dirname + "/public/html/index.html");
+    res.sendFile(__dirname + "/public/html/login.html");
 });
 
 app.post("/index.html",function(req,res){
