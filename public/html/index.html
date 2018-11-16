@@ -13,25 +13,45 @@
     <title></title>
   </head>
   <body>
+  <div >
+    <img src="../images/MSM-Logo.png" class="mx-auto d-block" width="307,5" height="128" style="margin-top: 40px" />
+  </div>
   <h1 class="text-center"> This is the Alpha Version of MSM Temping Platform </h1>
-  <div class="vcenter">
-  <div class="text-center w-50" >
-    <p>Klicke auf Senden um eine Person oder eine ID zu suchen</p>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" placeholder="Name">
-      </div>
+  <div class="container">
+  <div class="d-flex align-items-center ">
+    <form action="/home" method="GET">
       <div class="form-group">
         <label for="id">ID</label>
-        <input type="id" class="form-control" id="id" placeholder="ID">
+        <input name ="id" type="id" class="form-control" id="id" placeholder="ID" required>
       </div>
-
       <div class="form-group">
-        <input type="submit">
+        <input type="submit" >
+      </div>
+      <div>
+        <p>Klicke auf Senden um eine Person nach ihrer ID zu suchen</p>
       </div>
     </form>
   </div>
+  </div>
+  <div class="container">
+    <div class="d-felx align-items-center">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Login</th>
+        <th scope="col">Password</th>
+        <th scope="col">Portalrechte</th>
+        <th scope="col">Abteilung</th>
+      </tr>
+      </thead>
+      <tbody>
+     <tr>
+
+     </tr>
+      </tbody>
+    </table>
+    </div>
   </div>
   </body>
 </html>

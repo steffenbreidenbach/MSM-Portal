@@ -10,8 +10,8 @@ app.get("/", function(req,res){
     res.sendFile(__dirname + "/public/html/index.html");
 });
 
-app.get("/",function(req,res){
-    res.sendFile(__dirname + "/public/html/404.html");
+app.post("/index.html",function(req,res){
+    res.sendFile(__dirname + "/public/html/index.html");
 });
 
 app.get("/login",function(req,res){
@@ -24,13 +24,58 @@ app.get("/steffen",function(req,res){
 });
 
 app.get("/login/:name",function(req,res){
-   // var data = getDataFromSQL();
-    //console.log(data);
     var data = ["jonathan","as","hhdahds","hdasd"];
+    data.push("test");
+    getDataFromSQL(data);
      res.render("login",{name: req.params.name, data : data});
 });
 
+app.get("/getData/:id",function(req,res){
+    var data = ["test"];
+    var test = getDataFromSQL();
+    console.log(test);
+    res.render("data",{id:req.params.id,data:test})
+});
 
+app.get("/home",function(req,res){
+    var Connection = require('tedious').Connection;
+    var config = {
+        userName: 'MSM_Promotion_Admin',
+        password: 'Seebaer181050',
+        server: 'msm.database.windows.net',
+        // If you are on Microsoft Azure, you need this:
+        options: {encrypt: true, database: 'MSM_Promotion_Vorversion'}
+    };
+    var connection = new Connection(config);
+
+    connection.on('connect', function(err) {
+            // If no error, then good to go...
+            console.log("connected");
+
+            console.log('Reading rows from the Table...');
+            // Read all rows from table
+            request = new Request(
+                "SELECT * from dbo.LeistungskundeAccount where ID = ",
+                function(err, rowCount, rows)
+                {
+                    console.log(rowCount + ' row(s) returned');
+                    // process.exit();
+                }
+            );
+
+            request.on('row', function(columns) {
+                columns.forEach(function(column) {
+                    data.push(column.value);
+                    console.log("%s\t%s", column.metadata.colName, column.value);
+                    data.push(column.value);
+                });
+            });
+            connection.execSql(request);
+            return request;
+        }
+    );
+    res.render("index",{id:req.query.id})
+    });
 
 
 
@@ -48,26 +93,34 @@ function getDataFromSQL() {
     connection.on('connect', function(err) {
             // If no error, then good to go...
             console.log("connected");
-            //    executeStatement();
-             queryDatabase();
-              //queryDatabase2();
+
+        console.log('Reading rows from the Table...');
+        var data = [];
+        // Read all rows from table
+        request = new Request(
+            "SELECT * from dbo.LeistungskundeAccount",
+            function(err, rowCount, rows)
+            {
+                console.log(rowCount + ' row(s) returned');
+                // process.exit();
+            }
+        );
+
+        request.on('row', function(columns) {
+            columns.forEach(function(column) {
+                data.push(column.value);
+                console.log("%s\t%s", column.metadata.colName, column.value);
+                data.push(column.value);
+            });
+        });
+        connection.execSql(request);
+        return request;
         }
     );
 
-    function executeStatement() {
 
-        var request = new Request("select * form dbo.LeistungskundeAccount",function(err,count,rows){
-        });
-        console.log("execunting statement")
-        request.on('row', function(columns) {
-            columns.forEach(function(column) {
-                console.log("%s\t%s", column.metadata.colName, column.value);
-            });     console.log(column.value);
-        });
-        console.log("execunting statement")
-    }
 
-    function queryDatabase()
+    function queryDatabase(datens)
     { console.log('Reading rows from the Table...');
         var data = [];
         // Read all rows from table
@@ -84,29 +137,12 @@ function getDataFromSQL() {
             columns.forEach(function(column) {
                 data.push(column.value);
                 console.log("%s\t%s", column.metadata.colName, column.value);
+                data.push(column.value);
             });
         });
         connection.execSql(request);
-        return Math.PI;
     }
 
-    function queryDatabase2() {
-        var result = [];
-        request = new Request("select * form dbo.LeistungskundeAccount",function(err,count,rows){
-            console.log(result);
-
-        });
-        request.on("row", function (columns) {
-            var item = {};
-            columns.forEach(function (column) {
-                item[column.metadata.colName] = column.value;
-                console.log(column.value);
-            });
-            result.push(item);
-        });
-        connection.execSql(request);
-        return result;
-    }
 }
 var port = process.env.PORT || 1337;
 app.listen(port);
