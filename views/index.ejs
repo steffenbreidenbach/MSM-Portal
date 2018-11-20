@@ -47,7 +47,9 @@
             </thead>
             <tbody>
             <tr>
-                <th><%=id%></th>
+                <% daten.forEach(function(item){ %>
+                <th> <%= item %> </th>
+                <%});%>
             </tr>
             </tbody>
         </table>
