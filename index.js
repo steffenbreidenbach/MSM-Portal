@@ -42,6 +42,10 @@ app.get("/home",function(req,res){
     });
 });
 
+app.get("/navbar",function(req,res){
+   res.sendFile(__dirname+"/public/html/navbar.html");
+});
+
 app.get('*', function(req, res) {
     res.sendFile(__dirname+"/public/html/404.html");
 });
