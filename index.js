@@ -2,8 +2,8 @@
 var express = require("express");
 var app = express();
 var Request = require('tedious').Request;
-
-
+var TYPES = require('tedious').TYPES;
+var test;
 app.set("view engine","ejs");
 
 app.get("/", function(req,res){
@@ -42,6 +42,14 @@ app.get("/home",function(req,res){
     });
 });
 
+app.get("/home/id",function(req,res){
+    test = req.query.id;
+    createConnection2((data)=>{
+        res.render("index",{daten:data})
+    });
+});
+
+
 app.get("/navbar",function(req,res){
    res.sendFile(__dirname+"/public/html/navbar.html");
 });
@@ -50,6 +58,38 @@ app.get('*', function(req, res) {
     res.sendFile(__dirname+"/public/html/404.html");
 });
 
+function createConnection2(cb){
+    var Connection = require('tedious').Connection;
+    var Request = require('tedious').Request;
+    var config = {
+        userName: 'MSM_Promotion_Admin',
+        password: 'Seebaer181050',
+        server: 'msm.database.windows.net',
+        // If you are on Microsoft Azure, you need this:
+        options: {encrypt: true, database: 'MSM_Promotion_Vorversion',rowCollectionOnRequestCompletion:true,rowCollectionOnDone: true}
+    };
+    const connection = new Connection(config);
+
+    connection.on('connect', function(err) {
+        // If no error, then good to go...
+        console.log("connected");
+        console.log('Reading rows from the Table...');
+        // Read all rows from table
+        request = new Request( "SELECT * FROM dbo.LeistungskundeAccount where id = @id", function(err, rowCount, rows){
+            console.log(rowCount + ' row(s) returned');});
+        request.on('row', function(columns) {
+            var data = [];
+            columns.forEach(function(column) {
+
+                data.push(column.value);
+            });
+            // data is available here
+            cb(data);
+        });
+        request.addParameter("id",TYPES.Int,test);
+        connection.execSql(request);
+    });
+}
 function createConnection(cb){
     var Connection = require('tedious').Connection;
     var Request = require('tedious').Request;
