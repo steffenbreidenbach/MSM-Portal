@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+<h1>Kunden</h1>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Login</td>
+        <td>Password</td>
+        <td>Portalrecht</td>
+        <td>abteilung</td>
+    </tr>
+    <tr th:each="use : ${user}">
+        <td th:text="${use.get().getId()}">Vorwerk & Co. KG</td>
+        <td th:text="${use.get().getLogin()}"> Mühlenweg 17-37, 42270 Wuppertal</td>
+        <td th:text="${use.get().getPassword()}" >89140</td>
+        <td th:text="${use.get().getPortalrecht()}" >89140</td>
+        <td th:text="${use.get().getAbteilung()}" >89140</td>
+    </tr>
+</table>
+</body>
+</html>
