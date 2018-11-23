@@ -54,10 +54,10 @@ app.get("/navbar",function(req,res){
    res.sendFile(__dirname+"/public/html/navbar.html");
 });
 
-app.get('*', function(req, res) {
+/*app.get('*', function(req, res) {
     res.sendFile(__dirname+"/public/html/404.html");
 });
-
+ */
 function createConnection2(cb){
     var Connection = require('tedious').Connection;
     var Request = require('tedious').Request;
