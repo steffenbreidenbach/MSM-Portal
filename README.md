@@ -1,10 +1,5 @@
+# Sample Spring Boot Application #
 
-# Azure App Service on Linux
+This sample Spring Boot application was written for a blog post describing how to create a Spring Boot application with IntelliJ.
 
-## Java HelloWorld
-
-This sample demonstarates a Hello World app for Azure App Service Linux
-
-## Contributing
-
-This project has adopted the Microsoft Open Source Code of Conduct. For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.
+http://patrickgrimard.io/2014/08/14/how-to-build-a-spring-boot-application-using-intellij-idea/
