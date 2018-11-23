@@ -1,11 +1,19 @@
-# Spring Framework 5: Beginner to Guru
+---
+services: app-service\web,app-service
+platforms: dotnet
+author: cephalin
+---
 
-This repository is for an example application built in my [Spring Framework 5 - Beginner to Guru](https://courses.springframework.guru/p/spring-framework-5-begginer-to-guru) online course
+# ASP.NET Core API sample for Azure App Service
 
-The application is a simple Spring Boot 2 / Spring Framework 5 web application.
+This is a sample application that you can use to follow along with the tutorial at 
+[Run a RESTful API with CORS in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api). 
 
-If you would like learn about what's new in Spring Framework 5, click [here](https://springframework.guru/what-is-new-with-spring-framework-5/)
+## License
 
-If you'd like to learn more about the cool new reactive types in Spring Framework 5, click [here](https://springframework.guru/spring-web-reactive/)
+See [LICENSE](LICENSE.md).
 
-You can learn about my Spring Framework 5 Online course [here.](https://courses.springframework.guru/p/spring-framework-5-begginer-to-guru)
+## Contributing
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+  
