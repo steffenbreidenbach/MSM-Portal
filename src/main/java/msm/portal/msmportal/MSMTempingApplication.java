@@ -1,12 +1,12 @@
-package my.youtube.benzinsniffer;
+package msm.portal.msmportal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BenzinsnifferApplication {
+public class MSMTempingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BenzinsnifferApplication.class, args);
+		SpringApplication.run(MSMTempingApplication.class, args);
 	}
 }

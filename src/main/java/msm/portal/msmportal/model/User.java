@@ -1,4 +1,4 @@
-package my.youtube.benzinsniffer.model;
+package msm.portal.msmportal.model;
 
 import lombok.Data;
 import javax.persistence.*;

@@ -1,7 +1,7 @@
-package my.youtube.benzinsniffer.web;
+package msm.portal.msmportal.web;
 
-import my.youtube.benzinsniffer.dataacess.UserRepository;
-import my.youtube.benzinsniffer.model.User;
+import msm.portal.msmportal.dataacess.UserRepository;
+import msm.portal.msmportal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 public class controller {
 
     @Autowired
-    UserRepository test;
+    UserRepository userRepository;
+
 
     @RequestMapping("/default")
     public String defaultAfterLogin(HttpServletRequest request) {
@@ -43,6 +44,23 @@ public class controller {
         return "/einsatzkraft/dashboard";
     }
 
+    @GetMapping("/einsatzkraft/kalender")
+    public String einsatzkraftKalender(Model model) {
+        return "/einsatzkraft/kalender";
+    }
+
+    @GetMapping("/einsatzkraft/pep")
+    public String einsatzkraftPep(Model model) {
+        return "/einsatzkraft/pep";
+    }
+
+    @GetMapping("/einsatzkraft/profil")
+    public String einsatzkraftProfil(Model model) {
+        return "/einsatzkraft/profil";
+    }
+
+
+
     @GetMapping("/admin/dashboard")
     public String adminDashboard(Model model) {
         return "/admin/dashboard";
@@ -54,8 +72,8 @@ public class controller {
     }
 
     @PostMapping("/adimn/LKerstellen")
-    public String addLK(User user,Model model) {
-        test.save(user);
+    public String addLK(User user, Model model) {
+        userRepository.save(user);
         return "/admin/hinzufuegen/LKAccount";
     }
 

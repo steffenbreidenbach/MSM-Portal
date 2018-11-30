@@ -1,4 +1,4 @@
-package my.youtube.benzinsniffer.model;
+package msm.portal.msmportal.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

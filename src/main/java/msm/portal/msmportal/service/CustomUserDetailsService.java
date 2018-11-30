@@ -1,8 +1,8 @@
-package my.youtube.benzinsniffer.service;
+package msm.portal.msmportal.service;
 
-import my.youtube.benzinsniffer.dataacess.UserRepository;
-import my.youtube.benzinsniffer.model.CustomUserDetails;
-import my.youtube.benzinsniffer.model.User;
+import msm.portal.msmportal.dataacess.UserRepository;
+import msm.portal.msmportal.model.CustomUserDetails;
+import msm.portal.msmportal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,7 @@
-package my.youtube.benzinsniffer.dataacess;
+package msm.portal.msmportal.dataacess;
 
-import my.youtube.benzinsniffer.model.User;
+
+import msm.portal.msmportal.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
