@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: my.youtube.benzinsniffer.BenzinsnifferApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.559 s <<< FAILURE! - in my.youtube.benzinsniffer.BenzinsnifferApplicationTests
+initializationError(my.youtube.benzinsniffer.BenzinsnifferApplicationTests)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+

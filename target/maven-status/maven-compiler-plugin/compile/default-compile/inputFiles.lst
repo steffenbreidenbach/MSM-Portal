@@ -1,0 +1,11 @@
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/model/Einsatzkraft.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/dataacess/UserRepository.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/model/CustomUserDetails.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/model/User.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/web/controller.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/dataacess/EinsatzkraftRepository.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/dataacess/BesetzungRepository.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/model/Besetzung.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/MSMTempingApplication.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/service/CustomUserDetailsService.java
+/Users/jonathan/Downloads/msmportal-2/src/main/java/msm/portal/msmportal/config/SecurityConfiguration.java
