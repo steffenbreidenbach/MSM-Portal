@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: de.msm.msmcenter.MsmcenterApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.958 s - in de.msm.msmcenter.MsmcenterApplicationTests
