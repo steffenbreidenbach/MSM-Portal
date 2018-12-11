@@ -93,7 +93,9 @@ public class controller {
     }
 
     @GetMapping("/einsatzkraft/profil")
-    public String einsatzkraftProfil(Model model) {
+    public String einsatzkraftProfil(Model model,@AuthenticationPrincipal User user) {
+        Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
+        model.addAttribute("einsatzkraft",einsatzkraft.get());
         return "/einsatzkraft/profil";
     }
 
@@ -164,11 +166,6 @@ public class controller {
     @ResponseBody
     public List<Besetzung> allEvents(@AuthenticationPrincipal User user) {
         Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
-
-        List<Besetzung> tests = besetzungRepository.findAllByeinsatzkraftID(einsatzkraft.get().getId());;
-        for (Besetzung test: tests) {
-            System.out.println(test.toString());
-        }
         return besetzungRepository.findAllByeinsatzkraftID(einsatzkraft.get().getId());
     }
 
