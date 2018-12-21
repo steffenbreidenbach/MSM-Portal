@@ -2,7 +2,7 @@ package de.msm.msmcenter.service;
 
 import de.msm.msmcenter.dataacess.UserRepository;
 import de.msm.msmcenter.model.CustomUserDetails;
-import de.msm.msmcenter.model.User;
+import de.msm.msmcenter.model.entitiys.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +19,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userRepository.findBylogin(username) ;
+        Optional<User> optionalUser = userRepository.findByUsername(username) ;
 
         optionalUser
                 .orElseThrow(()-> new UsernameNotFoundException("Username not found"));

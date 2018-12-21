@@ -1,6 +1,6 @@
 <div th:fragment="navbar">
     <nav class="navbar navbar-light navbar-expand-md fixed-top" style="background-color: rgb(255,255,255);">
-        <div class="container-fluid"><a class="navbar-brand" href="dashboard"><img src="/img/MSM_Center-Logo.png" style="width: 92px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="dashboard"><img src="/img/MSM_Center-Logo.jpg" style="width: 92px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                     class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
@@ -10,10 +10,15 @@
                     <li class="nav-item">
                     <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Hinzufügen</a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="#">Einsatzkraft</a>
-                            <a class="dropdown-item" role="presentation" href="hinzufuegen/LKAccount.html">LK - Account</a>
-                            <a class="dropdown-item" role="presentation" href="#">Leistungskunden</a>
-                            <a class="dropdown-item" role="presentation" href="#">Rechnungskunden</a>
+                            <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Einsatzkraft</a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/einsatzkraft/freelancer">Freelancer</a>
+                                <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/einsatzkraft/festangestellte">Festangestellter</a>
+                            </div>
+                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/lkaccount">LK - Account</a>
+                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/leistungskunde">Leistungskunden</a>
+                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/rechnungskunde">Rechnungskunden</a>
+                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/user">User</a>
                         </div>
                     </li>
                 </ul>
@@ -33,5 +38,5 @@
 
         </div>
     </nav>
-    <hr class ="fixed-top" style="margin-top: 72px;background-color: rgb(32,136,152);" />
+    <hr class ="fixed-top" style="margin-top: 74px;background-color: rgb(32,136,152);" />
 </div>

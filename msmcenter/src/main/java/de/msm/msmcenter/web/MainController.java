@@ -4,9 +4,10 @@ package de.msm.msmcenter.web;
 import de.msm.msmcenter.dataacess.BesetzungRepository;
 import de.msm.msmcenter.dataacess.EinsatzkraftRepository;
 import de.msm.msmcenter.dataacess.UserRepository;
-import de.msm.msmcenter.model.Besetzung;
-import de.msm.msmcenter.model.Einsatzkraft;
-import de.msm.msmcenter.model.User;
+
+import de.msm.msmcenter.model.entitiys.Besetzung;
+import de.msm.msmcenter.model.entitiys.Einsatzkraft;
+import de.msm.msmcenter.model.entitiys.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -24,7 +25,7 @@ import java.util.Optional;
 
 
 @Controller
-public class controller {
+public class MainController {
 
     @Autowired
     UserRepository userRepository;
@@ -74,59 +75,8 @@ public class controller {
         return "/leistungskunde/dashboard";
     }
 
-    @GetMapping("einsatzkraft/dashboard")
-    public String einsatzkraftDashboard(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-         Object user = auth.getPrincipal();
-         model.addAttribute("einsatzkraft",einsatzkraftRepository.findByid(1));
-        return "/einsatzkraft/dashboard";
-    }
 
-    @GetMapping("/einsatzkraft/kalender")
-    public String einsatzkraftKalender(Model model) {
-        return "/einsatzkraft/kalender";
-    }
 
-    @GetMapping("/einsatzkraft/pep")
-    public String einsatzkraftPep(Model model) {
-        return "/einsatzkraft/pep";
-    }
-
-    @GetMapping("/einsatzkraft/profil")
-    public String einsatzkraftProfil(Model model,@AuthenticationPrincipal User user) {
-        Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
-        model.addAttribute("einsatzkraft",einsatzkraft.get());
-        return "/einsatzkraft/profil";
-    }
-
-    @GetMapping("/admin/dashboard")
-    public String adminDashboard(Model model) {
-        return "/admin/dashboard";
-    }
-
-    @GetMapping("/admin/leistungskunden")
-    public String adminLK(Model model) {
-        return "/admin/hinzufuegen/LKAccount";
-    }
-
-    @PostMapping("/adimn/LKerstellen")
-    public String addLK(User user, Model model) {
-        userRepository.save(user);
-        return "/admin/hinzufuegen/LKAccount";
-    }
-
-    @GetMapping("/admin/erstellen")
-    public String erstelleBesetzung(Model model) {
-        for(int i = 685;i<1500;i++){
-            Besetzung besetzung = new Besetzung();
-            besetzung.setId(i);
-            besetzung.setProjektvertragRechnungskundeID(1);
-            besetzung.setEinsatzkraftID(2);
-            besetzung.setFlaecheID(1);
-            besetzungRepository.save(besetzung);
-        }
-        return "/admin/dashboard";
-    }
 
     @GetMapping("/kalender")
     public String kalendertest(){
@@ -134,11 +84,6 @@ public class controller {
         return "/kalendertest";
     }
 
-    @GetMapping("/admin/getData")
-    public String getData(Model model){
-     model.addAttribute("data",besetzungRepository.findAllByeinsatzkraftID(1));
-     return "/admin/data";
- }
 
     @RequestMapping(value="/events", method=RequestMethod.GET)
     public List<Besetzung> getEventsInRange(@RequestParam(value = "start", required = true) String start,
@@ -159,15 +104,10 @@ public class controller {
             throw new BadDateFormatException("bad end date: " + end);
         }
 
-        return besetzungRepository.findByStartBetween(startDate, endDate);
+        return besetzungRepository.findByBesetzungStartZeitBetween(startDate, endDate);
     }
 
-    @RequestMapping(value="/einsatzkraft/kalender/events2", method=RequestMethod.GET)
-    @ResponseBody
-    public List<Besetzung> allEvents(@AuthenticationPrincipal User user) {
-        Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
-        return besetzungRepository.findAllByeinsatzkraftID(einsatzkraft.get().getId());
-    }
+
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     class BadDateFormatException extends RuntimeException {
@@ -176,5 +116,12 @@ public class controller {
         public BadDateFormatException(String dateString) {
             super(dateString);
         }
+    }
+
+
+    @PostMapping("test")
+    public String add(User user){
+        userRepository.save(user);
+        return "/admin/dashboard";
     }
 }

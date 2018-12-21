@@ -1,4 +1,4 @@
-package de.msm.msmcenter.model;
+/*package de.msm.msmcenter.model;
 
 
 import lombok.Data;
@@ -139,3 +139,4 @@ public class Einsatzkraft {
     @OneToOne
     private User user;
 }
+*/

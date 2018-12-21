@@ -1,11 +1,11 @@
-package de.msm.msmcenter.model;
+/*package de.msm.msmcenter.model;
 
 import lombok.Data;
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "LeistungskundeAccount" , schema="dbo")
+@Table(name = "user" , schema="dbo")
 
 public class User {
     public User(User user) {
@@ -13,7 +13,7 @@ public class User {
         this.login = user.getLogin();
         this.password = user.getPassword();
         this.portalrecht = user.getPortalrecht();
-        this.abteilung = user.getAbteilung();
+        this.email = user.getEmail();
     }
 
     public User() {
@@ -23,16 +23,17 @@ public class User {
     @Column(name = "ID")
     private int id;
 
-    @Column(name = "LeistungskundeAccount_Login")
+    @Column(name = "username")
     private String login;
 
-    @Column(name = "LeistungskundeAccount_Password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "Portalrechte")
+    @Column(name = "protalrecht")
     private String portalrecht;
 
-    @Column(name = "LeistungkundeAccount_Abteilung")
-    private String abteilung;
+    @Column(name = "email")
+    private String email;
 
 }
+*/

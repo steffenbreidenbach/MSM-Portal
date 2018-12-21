@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Leistungskunde Hinzufuegen</title>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<div style="margin-top:10%">
+    <form action="/admin/hinzufuegen/leistungskunde/add" method="post">
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Name</label><input type="text" name="name" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Abteilung</label><input type="text" name="abteilung" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Strasse</label><input type="text" name="strasse" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Hausnummer</label><input type="text" name="hausnummer" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Ort</label><input type="text" name="ort" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>PLZ</label><input type="text" name="plz" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>E-Mail</label><input type="text" name="eMail" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Telefonnummer</label><input type="text" name="telefonnummer" class="form-control" /></div>
+        </div>
+        <div class="text-center" style="margin-top: 5%;"><button class="btn btn-primary" type="submit">Erstellen</button></div>
+    </form>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

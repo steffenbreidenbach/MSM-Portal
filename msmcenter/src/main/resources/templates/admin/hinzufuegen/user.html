@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='/js/moment.min.js'></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:replace="/../fragments/adminHeader ::navbar" name="header" ></div>
+<!-- <div style="margin-top:10%"  class="table-responsive-sm">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vorname</th>
+            <th scope="col">Nachname</th>
+            <th scope="col">PLZ</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        </tbody>
+    </table>
+</div> -->
+<div th:if="${error != null}" class="alert alert-danger" style="margin-top: 6%">Login Name ist bereits vergeben!</div>
+
+<div style="margin-top: 10%">
+    <form action="/admin/hinzufuegen/user/add" method="post">
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Userrname</label><input type="text" name="username" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>E-Mail</label><input class="form-control" type="text" name="email" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Password</label><input class="form-control" type="text" name="password" /></div>
+            <div class="col" style="padding-right: 10%;">
+                <label>Portalrecht</label>
+                <select class="form-control" name="portalrecht">
+                <optgroup label="Portalrecht">
+                    <option value="admin" selected>Admin</option>
+                    <option value="einsatzkraft">Einsatzkraft</option>
+                    <option value="leistungskunde" selected>Leistungskunde</option>
+                </optgroup></select></div>
+        </div>
+        <div class="text-center" style="margin-top: 5%;"><button class="btn btn-primary" type="submit">Erstellen</button></div>
+    </form>
+
+
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

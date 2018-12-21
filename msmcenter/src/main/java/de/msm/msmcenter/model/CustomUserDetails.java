@@ -1,5 +1,6 @@
 package de.msm.msmcenter.model;
 
+import de.msm.msmcenter.model.entitiys.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,7 @@ public class CustomUserDetails extends User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return super.getLogin();
+        return super.getUsername();
     }
 
     @Override
