@@ -39,15 +39,6 @@
         $(document).ready(function() {
 
             $('#calendar').fullCalendar({
-                    eventRender: function(eventObj, $el) {
-                        $el.popover({
-                            title: eventObj.title,
-                            content: eventObj.description,
-                            trigger: 'hover',
-                            placement: 'top',
-                            container: 'body'
-                        });
-                    },
                 lang: 'de',
                 header: { center: 'month,agendaWeek' },
                 defaultView : "month",
