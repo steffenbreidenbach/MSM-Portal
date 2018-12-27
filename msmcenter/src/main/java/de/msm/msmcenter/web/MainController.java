@@ -104,7 +104,7 @@ public class MainController {
             throw new BadDateFormatException("bad end date: " + end);
         }
 
-        return besetzungRepository.findByBesetzungStartZeitBetween(startDate, endDate);
+        return besetzungRepository.findBystartBetween(startDate, endDate);
     }
 
 

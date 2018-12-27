@@ -17,26 +17,26 @@ public class LeistungskundeAnsprechpartner {
   @Column(name="ID")
   private Integer id;
 
-  @Column(name="HandelspartnerAnsprechpatner_Anrede")
-  private String Anrede;
+  @Column(name="LeistungskundeAnsprechpatner_Anrede")
+  private String anrede;
 
-  @Column(name="HandelspartnerAnsprechpatner_Vorname")
-  private String Vorname;
+  @Column(name="LeistungskundeAnsprechpatner_Vorname")
+  private String vorname;
 
-  @Column(name="HandelspartnerAnsprechpatner_Name")
-  private String Name;
+  @Column(name="LeistungskundeAnsprechpatner_Name")
+  private String name;
 
-  @Column(name="HandelspartnerAnsprechpatner_Telefon")
-  private String Telefon;
+  @Column(name="LeistungskundeAnsprechpatner_Telefon")
+  private String telefon;
 
-  @Column(name="HandelspartnerAnsprechpatner_eMail")
-  private String EMail;
+  @Column(name="LeistungskundeAnsprechpatner_eMail")
+  private String eMail;
 
-  @Column(name="HandelspartnerAnsprechpatner_BIld")
-  private byte[] BIld;
+  @Column(name="LeistungskundeAnsprechpatner_BIld")
+  private byte[] bild;
 
-  @Column(name="HandelspartnerAnsprechpatner_Fax")
-  private String Fax;
+  @Column(name="LeistungskundeAnsprechpatner_Fax")
+  private String fax;
 
   @Column(name="Leistungskunde_ID")
   private Integer leistungskundeId;

@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="`user`", schema = "dbo")
+@Table(name="Users", schema = "dbo")
 public class User {
   public User(User user) {
     this.id = user.getId();

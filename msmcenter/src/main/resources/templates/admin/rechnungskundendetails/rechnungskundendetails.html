@@ -25,14 +25,39 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-  <div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-  <script src="/js/Profile-Edit-Form.js"></script>
+<h1 th:text="${rechnungskunde.name}" class="text-center" style="margin: 100px 0px 0px;color: rgb(139,145,150);">Einsatzkraft erstellen</h1>
+<div class="container">
+    <column>
+        <row>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Stadt</th>
+                    <th scope="col">Iban</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" th:text="${rechnungskunde.id}">1</th>
+                    <td th:text="${rechnungskunde.name}">Mark </td>
+                    <td th:text="${rechnungskunde.ort}">Otto</td>
+                    <td th:text="${rechnungskunde.iban}">Otto</td>
+                </tr>
+                </tbody>
+            </table>
+        </row>
+    </column>
+   
+</div>
+<div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<script src="/js/Profile-Edit-Form.js"></script>
 </body>
 
 </html>

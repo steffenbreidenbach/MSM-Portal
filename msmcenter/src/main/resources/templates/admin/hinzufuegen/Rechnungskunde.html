@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='/js/moment.min.js'></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/css/Google-Style-Login.css">
+    <link rel="stylesheet" href="/css/Pretty-Table-1.css">
+    <link rel="stylesheet" href="/css/Pretty-Table.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<h1 class="text-center" style="margin: 100px 0px 0px;color: rgb(139,145,150);">Rechnungskunden erstellen</h1>
+<div style="margin-top: 2%">
+    <form action="/admin/hinzufuegen/rechnungskunde/add" method="post">
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Name</label><input type="text" name="name" required class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Kontoinhaber</label><input type="text" name="kontoInhaber" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>IBAN</label><input type="text" name="iban" class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>BIC</label><input type="text" name="bic" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Kreditinstitut</label><input type="text" name="kreditinstitut"  class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Strasse</label><input type="text" required name="strasse" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Hausnummer</label><input type="text"  name="hausnummer" class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>PLZ</label><input type="text" required name="plz" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Ort</label><input type="text" name="ort"  class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Marke</label><input type="text" required name="marke" class="form-control" /></div>
+        </div>
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>Telefon</label><input type="text" name="telefon" class="form-control" /></div>
+            <div class="col" style="padding-right: 10%;"><label>Status</label><select name="status" class="form-control"><optgroup label="Status"><option value="aktiv" selected>Aktiv</option><option value="werbend">Werbend</option></optgroup></select></div>
+        </div>
 
+        <div class="form-row">
+            <div class="col" style="padding-left: 10%;padding-right: 10%;"><label>ID</label><input type="text" name="id"  class="form-control" /></div>
+        </div>
+
+
+        <div class="text-center" style="margin-top: 3%;"><button class="btn btn-primary" type="submit">Erstellen</button></div>
+    </form>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

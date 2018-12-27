@@ -13,5 +13,5 @@ public interface BesetzungRepository extends JpaRepository<Besetzung, Integer> {
     ArrayList<Besetzung> findAllByeinsatzkraftId(int id);
     List<Besetzung> findAll();
 
-    List<Besetzung> findByBesetzungStartZeitBetween(Date startDate, Date endDate);
+    List<Besetzung> findBystartBetween(Date start, Date end);
 }

@@ -1,25 +1,19 @@
 package de.msm.msmcenter.web;
 
 
-import de.msm.msmcenter.dataacess.BesetzungRepository;
-import de.msm.msmcenter.dataacess.EinsatzkraftRepository;
-import de.msm.msmcenter.dataacess.LeistungskundeRepository;
-import de.msm.msmcenter.dataacess.UserRepository;
-import de.msm.msmcenter.model.entitiys.Besetzung;
-import de.msm.msmcenter.model.entitiys.Einsatzkraft;
-import de.msm.msmcenter.model.entitiys.Leistungskunde;
-import de.msm.msmcenter.model.entitiys.User;
+import de.msm.msmcenter.dataacess.*;
+import de.msm.msmcenter.model.entitiys.*;
 import de.msm.msmcenter.service.EinsatzkraftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.xml.transform.ErrorListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -36,6 +30,10 @@ public class AdminController {
 
     @Autowired
     LeistungskundeRepository leistungskundeRepository;
+
+    @Autowired
+    RechnungskundeRepository rechnungskundeRepository;
+
     @RequestMapping("/test")
     public String test(){
         return "test";
@@ -109,10 +107,28 @@ public class AdminController {
         return "/admin/dashboard";
     }
 
+    @RequestMapping ("/hinzufuegen/rechnungskunde")
+    public String rechnungskunde(){
+        return "/admin/hinzufuegen/rechnungskunde";
+    }
+
+    @PostMapping("/hinzufuegen/rechnungskunde/add")
+    public String rechnungskundeAdd(Rechnungskunde rechnungskunde){
+        rechnungskundeRepository.save(rechnungskunde);
+        return "/admin/dashboard";
+    }
+
     @RequestMapping("/hinzufuegen/einsatzkraft/festangestellte")
     public String testst(){
         return "/admin/hinzufuegen/Einsatzkraft";
     }
+
+    @RequestMapping("/hinzufuegen/leistungskundeAk")
+    public String leistungskundeAk(){
+        return "/admin/hinzufuegen/Leistungskunde";
+    }
+
+
     @PostMapping("/hinzufuegen/einsatzkraft/freelancer")
     public String addFreelancer(Einsatzkraft einsatzkraft) {
         einsatzkraftRepository.save(einsatzkraft);
@@ -123,5 +139,42 @@ public class AdminController {
         einsatzkraftRepository.save(einsatzkraft);
         return "/admin/dashboard";
         }
+
+
+
+    @RequestMapping(value = "/suggestion", method = RequestMethod.GET, produces = "application/json")
+    @ResponseBody
+    public List<Leistungskunde> autocompleteSuggestions(@RequestParam("searchstr") String searchstr) {
+        List<Leistungskunde> suggestions = leistungskundeRepository.findByNameContains(searchstr);
+        // truncate the list to the first n, max 20 elements
+        int n = suggestions.size() > 20 ? 20 : suggestions.size();
+        List<Leistungskunde> sulb = new ArrayList<>(suggestions.subList(0, n));
+        return sulb;
+    }
+
+    @RequestMapping("/suchen/leistungskunden")
+    public String leistungskundenSuchen(Model model){
+        model.addAttribute("leistungskunden",leistungskundeRepository.findAll());
+        return "/admin/suchen/leistungskunden";
+    }
+
+    @RequestMapping("/suchen/einsatzkraft")
+    public String einsatzkraftSuche (Model model){
+        model.addAttribute("einsatzkraefte",einsatzkraftRepository.findAll());
+        return "/admin/suchen/einsatzkraft";
+    }
+
+    @RequestMapping("/suchen/rechnungskunden")
+    public String rechnungskundenSuchen(Model model){
+        model.addAttribute("rechnungskunden",rechnungskundeRepository.findAll());
+        return "/admin/suchen/rechnungskunden";
+    }
+
+    @RequestMapping("/suchen/admin/rechnungskundendetails")
+    public String rechnungskundenSuchen(Integer rechnungskundeID,Model model){
+        model.addAttribute("rechnungskunde",rechnungskundeRepository.findById(rechnungskundeID).get());
+        return "/admin/rechnungskundendetails/rechnungskundendetails";
+    }
+
 
 }

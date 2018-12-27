@@ -2,24 +2,19 @@ package de.msm.msmcenter.model.entitiys;
 
 
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import de.msm.msmcenter.model.entitiys.Fläche;
+import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name="Besetzung",schema="dbo")
 public class Besetzung {
 
+
   @Id
 
   @Column(name = "ID")
   private Integer id;
-
-  @Column(name = "Besetzung_Datum")
-  private String Datum;
 
   @Column(name = "Besetzung_Einsatzzeit")
   private String Einsatzzeit;
@@ -37,9 +32,8 @@ public class Besetzung {
   @Column(name = "Einsatzkraft_ID")
   private Integer einsatzkraftId;
 
-  @Column(name = "Fläche_ID")
-  private Integer flächeId;
-
+  @OneToOne
+  private Fläche Fläche;
 
   @Column(name = "Besetzung_BestätigungFürRechnung")
   private String BestätigungFürRechnung;
@@ -47,9 +41,21 @@ public class Besetzung {
   @Column(name = "Besetzung_AnfrageVersendung")
   private String AnfrageVersendung;
 
-  @Column(name = "Besetzung_StartZeit")
-  private java.sql.Timestamp besetzungStartZeit;
+  @Column(name = "Besetzung_Start")
+  private java.sql.Timestamp end;
 
-  @Column(name = "Besetzung_EndZeit")
-  private java.sql.Timestamp besetzungEndZeit;
+  @Column(name = "Besetzung_End")
+  private java.sql.Timestamp start;
+
+
+  @Transient
+  private String title ;
+
+  @Transient
+  private String description ;
+
+  @Transient
+  private String color ;
+
+
 }

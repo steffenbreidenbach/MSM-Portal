@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -20,8 +17,8 @@ public class Fläche {
   @Column(name="Fläche_Name")
   private String flächeName;
 
-  @Column(name="RechnungskundeDifferenzierung_ID")
-  private Integer rechnungskundeDifferenzierungId;
+  @OneToOne
+  private RechnungskundeDifferenzierung rechnungskundeDifferenzierung;
 
 
   @Column(name="Leistungskunde_ID")

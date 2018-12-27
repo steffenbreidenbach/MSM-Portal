@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -18,42 +15,42 @@ public class Rechnungskunde {
   private Integer id;
 
   @Column(name="Rechnungskunde_Name")
-  private String Name;
+  private String name;
 
   @Column(name="Rechnungskunde_KontoInhaber")
-  private String KontoInhaber;
+  private String kontoInhaber;
 
   @Column(name="Rechnungskunde_IBAN")
-  private String Iban;
+  private String iban;
 
   @Column(name="Rechnungskunde_BIC")
-  private String Bic;
+  private String bic;
 
   @Column(name="Rechnungskunde_Kreditinstitut")
-  private String Kreditinstitut;
+  private String kreditinstitut;
 
   @Column(name="Rechnungskunde_Strasse")
-  private String Strasse;
+  private String strasse;
 
   @Column(name="Rechnugskunde_Hausnummer")
-  private String rechnugskundeHausnummer;
+  private String hausnummer;
 
   @Column(name="Rechnungskunde_PLZ")
-  private String Plz;
+  private String plz;
 
   @Column(name="Rechnungskunde_Ort")
-  private String Ort;
+  private String ort;
 
   @Column(name="Rechnungskunde_Vertreter1")
-  private String Vertreter1;
+  private String vertreter1;
 
   @Column(name="Rechnungskunde_Marke")
-  private String Marke;
+  private String marke;
 
   @Column(name="Rechnungskunde_Telefon")
-  private String Telefon;
+  private String telefon;
 
   @Column(name="Rechnungskunde_Status")
-  private String Status;
+  private String status;
 
 }

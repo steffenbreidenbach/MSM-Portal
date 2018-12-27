@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Leistungskunden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='/js/moment.min.js'></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/css/Data-Table-1.css">
+    <link rel="stylesheet" href="/css/Data-Table.css">
+    <link rel="stylesheet" href="/css/Footer-Dark-1.css">
+    <link rel="stylesheet" href="/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/css/Google-Style-Login.css">
+    <link rel="stylesheet" href="/css/Pretty-Table-1.css">
+    <link rel="stylesheet" href="/css/Pretty-Table.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
+    <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+<input style="margin-top: 10%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<table  class="table" id="myTable">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Stadt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="leistungskunde :${leistungskunden}">
+        <th scope="row" th:text="${leistungskunde.id}">1</th>
+        <td th:text="${leistungskunde.name}">Mark </td>
+        <td th:text="${leistungskunde.ort}">Otto</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+</div>
+<div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+<script src="/js/Profile-Edit-Form.js"></script>
+</body>
+</html>

@@ -61,6 +61,17 @@ public class EinsatzkraftController {
     @ResponseBody
     public List<Besetzung> allEvents(@AuthenticationPrincipal User user) {
         Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
+        List<Besetzung> besetzungen = besetzungRepository.findAllByeinsatzkraftId((int)einsatzkraft.get().getId());
+        for (Besetzung besetzung: besetzungen) {
+            besetzung.setTitle(besetzung.getFläche().getRechnungskundeDifferenzierung().getRechnungskunde().getName());
+           // besetzung.setDescription(besetzung.getFläche().getRechnungskundeDifferenzierung().getRechnungskunde().getOrt() + " " + besetzung.getFläche().getRechnungskundeDifferenzierung().getRechnungskunde().getStrasse());
+            if(besetzung.getAnfrageVersendung()!=null) {
+                if (besetzung.getAnfrageVersendung().equals("bestätigt"))
+                    besetzung.setColor("green");
+            } else {
+                besetzung.setColor("red");
+            }
+        }
         return besetzungRepository.findAllByeinsatzkraftId((int)einsatzkraft.get().getId());
     }
 }

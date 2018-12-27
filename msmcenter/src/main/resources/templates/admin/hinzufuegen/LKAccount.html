@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MSMPortal</title>
+    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='/js/moment.min.js'></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="/css/Data-Table-1.css">
-    <link rel="stylesheet" href="/css/Data-Table.css">
-    <link rel="stylesheet" href="/css/Footer-Dark-1.css">
-    <link rel="stylesheet" href="/css/Footer-Dark.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="/css/Navigation-Clean.css">
     <link rel="stylesheet" href="/css/Google-Style-Login.css">
@@ -20,13 +20,40 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- JS file -->
+    <script src="/js/jquery.easy-autocomplete.min.js"></script>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="/cs/easy-autocomplete.min.css">
+
+    <!-- Additional CSS Themes file - not required-->
+    <link rel="stylesheet" href="/cs/easy-autocomplete.themes.min.css">
+
+    <script src="/js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <script src="/js/jquery.js"></script>
+    <script src=/js/"jquery-ui.min.js"></script>
+   <script>
+        $(document).ready(function() {
+            $('#autocomplete-input').devbridgeAutocomplete({
+                serviceUrl: '/admin/suggestion',
+                paramName: 'searchstr',
+                minChars: 1,
+                autoSelectFirst: true,
+            });
+        });
+
+
+    </script>
 </head>
 
 <body>
 <div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
-<h1 class="text-center" style="margin: 50px 0px 0px;color: rgb(139,145,150);">Account erstellen</h1>
-    <div class="container text-left">
-        <div class="text-center" style="margin: 100px;width: 876px;padding: 0px;">
+<h1 class="text-center" style="margin-top:100px;color: rgb(139,145,150);">Leistungskunden Account erstellen</h1>
+
+    <div class="container text-center">
+        <div class="text-center" style="margin-top: 2%;width: 876px;padding: 0px;">
             <form action="/test" method="post">
                 <div class="form-group">
                     <div class="form-row">
@@ -47,12 +74,33 @@
             </form>
         </div>
     </div>
+
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">textsms</i>
+                <input type="text" id="autocomplete-input" class="autocomplete">
+                <label for="autocomplete-input">Countries of the World</label>
+            </div>
+        </div>
+    </div>
+    <input type="text" name="country" id="autocomplete"/>
+    <script>
+        $('#autocomplete').autocomplete({
+            serviceUrl: '/admin/suggestion',
+            paramName: 'searchstr',
+            onSelect: function (suggestion) {
+                alert('You selected: ' + suggestion.name);
+            }
+        });
+    </script>
     <script src="/js/jquery.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/js/smart-forms.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <script src="/js/Profile-Edit-Form.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</div>
+
 </body>
+
+
 
 </html>
