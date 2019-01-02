@@ -14,6 +14,7 @@ import javax.xml.transform.ErrorListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
@@ -33,6 +34,12 @@ public class AdminController {
 
     @Autowired
     RechnungskundeRepository rechnungskundeRepository;
+
+    @Autowired
+    RechnungskundeDifferenzierungRepository rechnungskundeDifferenzierungRepository;
+
+    @Autowired
+    FlaechenRepository flaechenRepository;
 
     @RequestMapping("/test")
     public String test(){
@@ -174,6 +181,11 @@ public class AdminController {
     public String rechnungskundenSuchen(Integer rechnungskundeID,Model model){
         model.addAttribute("rechnungskunde",rechnungskundeRepository.findById(rechnungskundeID).get());
         return "/admin/rechnungskundendetails/rechnungskundendetails";
+    }
+
+    @RequestMapping("/testen")
+    public String testen(){
+        return "/admin/pep";
     }
 
 
