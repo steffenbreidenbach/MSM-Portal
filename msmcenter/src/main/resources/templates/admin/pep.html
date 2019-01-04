@@ -24,30 +24,63 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        table.showcell{
-            empty-cells: show;
-        }
-    </style>
 </head>
 
 <body>
 <div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
 <div class="container" style="margin-top: 10%">
-<table id="testtable" class="table showcell">
+
+    <table id="infotable" class="table table-striped" style="margin-bottom: 5%;width: 150px;height:300px;">
+        <tbody>
+            <tr>
+                <th>Zuletzt bearbeite am</th>
+                <td ></td>
+            </tr>
+            <tr>
+                <th>Auftraggeber</th>
+                <td id="rechnungskunde">test</td>
+            </tr>
+            <tr>
+                <th>Kunde</th>
+                <td id="leistungskunde">test</td>
+            </tr>
+            <tr>
+                <th>Standort</th>
+                <td id="ort">test</td>
+            </tr>
+            <tr>
+                <th>Monat</th>
+                <td id="monat"></td>
+            </tr>
+            <tr>
+                <th>Jahr</th>
+                <td id="jahr"></td>
+            </tr>
+            <tr>
+                <th>Flächen-nr</th>
+                <td id="fläche"></td>
+            </tr>
+            <tr>
+                <th>Flächenbetreuung</th>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+<table id="datatable" class="table table-hover table-striped">
     <thead>
     <tr>
-        <td class='calendar_head'><a class='calendar_link'
-                                     href='javascript:prevMonth()'> &laquo;</a></td>
-        <td colspan=5 class='calendar_head_month' id='calendar_month'>
+        <td ><a href='javascript:prevMonth()'> &laquo;</a></td>
+        <td colspan=1 class='calendar_head_month' id='calendar_month'>
             </td>
-        <td class='calendar_head'><a class='calendar_link'
-                                     href='javascript:nextMonth()'> &raquo;</a></td>
+        <td ><a href='javascript:today()'> Aktueller Monat</a></td>
+        <td colspan=1 class='calendar_head_month' id='calendar_month2'>
+        </td>
+        <td ><a href='javascript:nextMonth()'> &raquo;</a></td>
     </tr>
     <tr>
         <th scope="col">Datum</th>
         <th scope="col">Wochentag</th>
-        <th scope="col">Bemerkung</th>
         <th scope="col">Beginn (Uhrzeit)</th>
         <th scope="col">Ende (Uhrzeit)</th>
         <th scope="col">Pause(in Std)</th>
@@ -57,76 +90,180 @@
     </thead>
     <tbody>
 
-
-
-    <!--  <tr><td class='calendar_entry' id='calendar_entry_1'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_2'>-x-</td>  </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_3'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_4'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_5'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_6'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_7'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_8'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_9'>-x-</td></tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_10'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_11'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_12'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_13'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_14'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_15'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_16'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_17'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_18'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_19'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_20'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_21'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_22'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_23'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_24'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_25'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_26'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_27'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_28'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_29'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_30'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_31'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_32'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_33'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_34'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_35'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_36'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_37'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_38'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_39'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_40'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_41'>-x-</td> </tr>
-    <tr> <td class='calendar_entry' id='calendar_entry_42'>-x-</td> </tr> -->
     </tbody>
 </table>
 </div>
 <script>
+    var days = [];
+    var events = [];
+    var dates = [];
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();
     var currentYeahr = currentDate.getFullYear();
-    var date = new Date(currentYeahr,currentMonth,1);
-    var days = [];
-   while (date.getMonth() === currentMonth) {
-        var tag = date.getDate() +"."+date.getMonth()+1 +"."+date.getFullYear();
-        days.push(tag);
-       // days.push(new Date(date).toDateString());
-        date.setDate(date.getDate() + 1);
+    datatable = document.getElementById("datatable");
+    initalize();
+    getEvents();
+    console.log(events);
+    function initalize() {
+        var date = new Date(currentYeahr,currentMonth,1);
+        while (date.getMonth() === currentMonth) {
+            var tag = date.getDate() +"."+(date.getMonth()+1)+"."+date.getFullYear();
+            var alles = [getDayOfWeek(date),tag];
+            dates.push(Date);
+            days.push(alles);
+            date.setDate(date.getDate() + 1);
+        }
+        console.log(days);
+        datatable = document.getElementById("datatable");
+        loadCalender();
     }
-    console.log(days);
-    testtable = document.getElementById("testtable");
-    console.log(testtable.rows.length);
-    // rows
-    for(var i = 0; i < days.length; i++)
-    {
-        // create a new row
-        var newRow = testtable.insertRow(testtable.length)
-        var cell = newRow.insertCell(0);
-        cell.innerHTML = days[i];
 
+    function today(){
+        clearCalender()
+        days = [];
+        var today = new Date();
+        currentMonth = today.getMonth();
+        currentYeahr = today.getFullYear();
+        var date = new Date(currentYeahr,currentMonth,1);
+        while (date.getMonth() === currentMonth) {
+            var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
+            var alles = [getDayOfWeek(date),tag];
+            days.push(alles);
+            date.setDate(date.getDate() + 1);
+        }
+        console.log(days);
+        datatable = document.getElementById("datatable");
+        loadCalender();
+    }
+
+    function prevMonth(){
+        clearCalender()
+        days = [];
+        if(currentMonth-1<0){
+            currentMonth = 11;
+            currentYeahr = currentYeahr-1;
+        } else {
+            currentMonth = currentMonth-1;
+        }
+        var date = new Date(currentYeahr,currentMonth,1);
+        while (date.getMonth() === currentMonth) {
+            var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
+            var alles = [getDayOfWeek(date),tag];
+            days.push(alles);
+            date.setDate(date.getDate() + 1);
+        }
+        console.log(days);
+        datatable = document.getElementById("datatable");
+        loadCalender();
+    }
+    function nextMonth(){
+        clearCalender()
+        days = [];
+        if(currentMonth+2>12){
+            currentMonth = 0;
+            currentYeahr = currentYeahr+1;
+        } else
+        {        currentMonth = currentMonth+1;
+        }
+        var date = new Date(currentYeahr,currentMonth,1);
+        while (date.getMonth() === currentMonth) {
+            var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
+            var alles = [getDayOfWeek(date),tag];
+            days.push(alles);
+            dates.push(Date);
+            date.setDate(date.getDate() + 1);
+
+        }
+        console.log(days);
+        datatable = document.getElementById("datatable");
+        console.log(datatable.rows.length);
+        loadCalender();
+    }
+
+    function clearCalender(){
+        var myTable = document.getElementById("datatable");
+        var rowCount = myTable.rows.length;
+        for (var x=rowCount-1;x>1; x--) {
+            myTable.deleteRow(x);
+        }
+    }
+
+    function getEvents(){
+        var request = new XMLHttpRequest();
+        request.open('GET', '/admin/kalender/events', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                events = [];
+                events = JSON.parse(this.response);
+            } else {
+                console.log('error');
+            }
+        }
+        request.send();
+    }
+
+    function loadCalender(){
+        insertEvents();
+        getInformation();
+        var monat = document.getElementById("monat");
+        monat.innerHTML = getNameOfMonth(currentMonth);
+        var jahr = document.getElementById("jahr");
+        jahr.innerHTML = currentYeahr;
+        for(var i = 0; i < days.length; i++)
+        {
+            // create a new row
+            var newRow = datatable.insertRow(datatable.length);
+            for(var j = 0; j < days[i].length; j++)
+            {
+                // create a new cell
+                var cell = newRow.insertCell(0);
+                // add value to the cell
+                cell.innerHTML = days[i][j];
+            }
+        }
+    }
+
+    function insertEvents(){
+        for(var i = 0; i<events.length;i++) {
+            console.log(events[i].start);
+            console.log(dates[0]);
+            for(var j = 0;j<days.length;j++) {
+                if(events[i].start == days [j] ) {
+                    console.log("yes");
+                }
+            }
+        }
+    }
+
+    function getInformation() {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/admin/kalender/fläche', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+
+                var flächeData = JSON.parse(this.response);
+                var fläche = document.getElementById("fläche");
+                fläche.innerHTML = flächeData.id;
+                var rechnungsKunde = document.getElementById("rechnungskunde")
+                rechnungsKunde.innerHTML = flächeData.rechnungskundeDifferenzierung.rechnungskunde.name;
+                var leistungskunde = document.getElementById("leistungskunde")
+                leistungskunde.innerHTML = flächeData.leistungskunde.name;
+                var ort = document.getElementById("ort");
+                ort.innerHTML = flächeData.leistungskunde.ort;
+            } else {
+                console.log('error');
+            }
+        }
+        request.send();
+    }
+
+    function getNameOfMonth(date){
+        var months    = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+        return months[date];
+    }
+    function getDayOfWeek(date) {
+        var dayOfWeek = new Date(date).getDay();
+        return isNaN(dayOfWeek) ? null : ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'][dayOfWeek];
     }
 </script>
 

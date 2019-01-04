@@ -33,7 +33,7 @@ public class Besetzung {
   private Integer einsatzkraftId;
 
   @OneToOne
-  private Fläche Fläche;
+  private Fläche fläche;
 
   @Column(name = "Besetzung_BestätigungFürRechnung")
   private String BestätigungFürRechnung;

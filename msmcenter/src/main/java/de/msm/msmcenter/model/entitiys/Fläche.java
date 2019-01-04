@@ -20,8 +20,7 @@ public class Fläche {
   @OneToOne
   private RechnungskundeDifferenzierung rechnungskundeDifferenzierung;
 
-
-  @Column(name="Leistungskunde_ID")
-  private Integer leistungskundeId;
+  @OneToOne
+  private Leistungskunde leistungskunde;
 
 }
