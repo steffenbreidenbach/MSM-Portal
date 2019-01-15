@@ -3,21 +3,16 @@ package de.msm.msmcenter.web;
 
 import de.msm.msmcenter.dataacess.*;
 import de.msm.msmcenter.model.entitiys.*;
+import de.msm.msmcenter.model.entitiys.Fläche;
 import de.msm.msmcenter.service.EinsatzkraftService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
-import javax.swing.text.html.Option;
-import javax.xml.transform.ErrorListener;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+
+import java.sql.Timestamp;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -191,19 +186,32 @@ public class AdminController {
         return "/admin/pep";
     }
 
+    @RequestMapping("/pep")
+    public String pep(){
+        return "/admin/pep";
+    }
 
     @RequestMapping(value = "/kalender/events", method = RequestMethod.GET)
     @ResponseBody
     public List<Besetzung> allEvents() {
         Date date = new Date();
-        return besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date, date);
-
+        Date date2 = new Date(2019,0,30);
+        System.out.println(date2);
+       // System.out.println(besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date,date2).get(0));
+       // return besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date, date);
+        return besetzungRepository.findAll();
     }
 
     @RequestMapping(value = "/kalender/fläche", method = RequestMethod.GET)
     @ResponseBody
     public Optional<Fläche> flaecheInformationen() {
         return flaechenRepository.findById(1);
+    }
+
+    @GetMapping("/suchen/flaechen")
+    public String searchAllFlaechen(Model model){
+        model.addAttribute("flaechen",flaechenRepository.findAll());
+        return "/admin/suchen/flaechen";
     }
 }
 

@@ -19,25 +19,25 @@ public class MitarbeiterVerfügbarkeiten {
   private Integer id;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Mo")
-  private String Mo;
+  private String mo;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Di")
-  private String Di;
+  private String di;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Miw")
-  private String Miw;
+  private String miw;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Do")
-  private String Do;
+  private String don;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Fr")
-  private String Fr;
+  private String fr;
 
   @Column(name="MitarbeiterVerfügbarkeiten_Sa")
-  private String Sa;
+  private String sa;
 
   @Column(name="MitarbeiterVerfügbarkeiten_So")
-  private String So;
+  private String so;
 
   @Column(name="ArbeitsvertragEinsatzkraft_ID")
   private String arbeitsvertragEinsatzkraftId;

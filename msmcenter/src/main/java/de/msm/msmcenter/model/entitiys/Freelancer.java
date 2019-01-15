@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -25,10 +22,12 @@ public class Freelancer {
   @Column(name="ID")
   private Integer id;
 
-  @Column(name="Einsatzkraft_ID")
-  private Integer einsatzkraftId;
+  @OneToOne
+  @JoinColumn(name="Einsatzkraft_ID")
+  private Einsatzkraft einsatzkraft;
 
-  @Column(name="EinsatzkraftFirma_ID")
-  private Integer einsatzkraftFirmaId;
+  @OneToOne
+  @JoinColumn(name="EinsatzkraftFirma_ID")
+  private EinsatzkraftFirma einsatzkraftFirma;
 
 }

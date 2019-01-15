@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -20,9 +17,11 @@ public class RahmenvertragEinsatzkraft {
   @Column(name = "RahmenvertragEinsatzkraft_Prozzesstatus")
   private String rahmenvertragEinsatzkraftProzzesstatus;
 
-  @Column(name = "MSMFirmen_ID")
-  private Integer msmFirmenId;
+  @OneToOne
+  @JoinColumn(name = "MSMFirmen_ID")
+  private MsmFirmen msmFirmen;
 
-  @Column(name="Einsatzkraft_ID")
-  private Integer einsatzkraftId;
+  @OneToOne
+  @JoinColumn(name="Einsatzkraft_ID")
+  private Einsatzkraft einsatzkraft;
 }

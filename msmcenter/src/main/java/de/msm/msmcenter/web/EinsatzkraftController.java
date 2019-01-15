@@ -1,11 +1,7 @@
 package de.msm.msmcenter.web;
 
-import de.msm.msmcenter.dataacess.BesetzungRepository;
-import de.msm.msmcenter.dataacess.EinsatzkraftRepository;
-import de.msm.msmcenter.dataacess.UserRepository;
-import de.msm.msmcenter.model.entitiys.Besetzung;
-import de.msm.msmcenter.model.entitiys.Einsatzkraft;
-import de.msm.msmcenter.model.entitiys.User;
+import de.msm.msmcenter.dataacess.*;
+import de.msm.msmcenter.model.entitiys.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +29,13 @@ public class EinsatzkraftController {
 
     @Autowired
     BesetzungRepository besetzungRepository;
+
+    @Autowired
+    FlaechenRepository flaechenRepository;
+
+    @Autowired
+    ProjectVertragEinsatzkraftRepository  projektvertragEinsatzkraftRepository;
+
     @GetMapping("/dashboard")
     public String einsatzkraftDashboard(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -46,7 +51,14 @@ public class EinsatzkraftController {
     }
 
     @GetMapping("/pep")
-    public String einsatzkraftPep(Model model) {
+    public String einsatzkraftPep(Model model,@AuthenticationPrincipal User user){
+        Optional<Einsatzkraft> einsatzkraft = einsatzkraftRepository.findByUser(user);
+        ArrayList<ProjektvertragEinsatzkraft> test = projektvertragEinsatzkraftRepository.findFlächeByEinsatzkraft(einsatzkraft.get());
+        ArrayList<Fläche> flächen = new ArrayList<Fläche>();
+        for (ProjektvertragEinsatzkraft projekte: test) {
+           flächen.add(projekte.getFläche());
+        }
+        model.addAttribute("flaechen",flächen);
         return "/einsatzkraft/pep";
     }
 
@@ -73,5 +85,10 @@ public class EinsatzkraftController {
             }
         }
         return besetzungRepository.findAllByeinsatzkraftId((int)einsatzkraft.get().getId());
+    }
+
+    @GetMapping("/pep/get")
+    public String getPep(Integer id){
+        return "einsatzkraft/pepps";
     }
 }

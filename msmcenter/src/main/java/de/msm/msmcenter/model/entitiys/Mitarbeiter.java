@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -16,13 +13,13 @@ import javax.persistence.Table;
 public class Mitarbeiter {
   @Id
   @Column(name="Einsatzkraft_VersicherungsNr")
-  private String VersicherungsNr;
+  private String sersicherungsNr;
 
   @Column(name="Einsatzkraft_Schwerbehindert")
-  private String Schwerbehindert;
+  private String schwerbehindert;
 
   @Column(name="Einsatzkraft_WöchentlicheArbeitszeit")
-  private String WöchentlicheArbeitszeit;
+  private String wöchentlicheArbeitszeit;
 
   @Column(name="User_ID")
   private String userId;
@@ -33,8 +30,9 @@ public class Mitarbeiter {
 
   private Integer Id;
 
-  @Column(name="Krankenkassen_ID")
-  private Integer krankenkassenId;
+  @OneToOne
+  @JoinColumn(name="Krankenkassen_ID")
+  private Krankenkassen krankenkassen;
 
 
 

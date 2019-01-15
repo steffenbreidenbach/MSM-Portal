@@ -18,97 +18,97 @@ public class Einsatzkraft {
   private String name;
 
   @Column(name="Einsatzkraft_Familienstand")
-  private String Familienstand;
+  private String familienstand;
 
   @Column(name="Einsatzkraft_Geschlecht")
-  private String Geschlecht;
+  private String geschlecht;
 
   @Column(name="Einsatzkraft_Geburtsdatum")
-  private String Geburtsdatum;
+  private String geburtsdatum;
 
   @Column(name="Einsatzkraft_Geburtsland")
-  private String Geburtsland;
+  private String geburtsland;
 
   @Column(name="Einsatzkraft_Staatsangehörigkeit")
-  private String Staatsangehörigkeit;
+  private String staatsangehörigkeit;
 
   @Column(name="Einsatzkraft_Herkunft")
-  private String Herkunft;
+  private String herkunft;
 
   @Column(name="Einsatzkraft_Größe")
-  private String Größe;
+  private String größe;
 
   @Column(name="Einsatzkraft_Haarfarbe")
-  private String Haarfarbe;
+  private String haarfarbe;
 
   @Column(name="Einsatzkraft_Konfgröße1")
-  private String Konfgröße1;
+  private String konfgröße1;
 
   @Column(name="Einsatzkraft_Konfgröße2")
-  private String Konfgröße2;
+  private String konfgröße2;
 
   @Column(name="Einsatzkraft_Strasse")
-  private String Strasse;
+  private String strasse;
 
   @Column(name="Einsatzkraft_Hausnummer")
-  private String Hausnummer;
+  private String hausnummer;
 
   @Column(name="Einsatzkraft_Ort")
-  private String Ort;
+  private String ort;
 
   @Column(name="Einsatzkraft_PLZ")
-  private String Plz;
+  private String plz;
 
   @Column(name="Einsatzkraft_Telefon")
-  private String Telefon;
+  private String telefon;
 
   @Column(name="Einsatzkraft_MobilTel")
-  private String MobilTel;
+  private String mobilTel;
 
   @Column(name="Einsatzkraft_Fax")
-  private String Fax;
+  private String fax;
 
   @Column(name="Einsatzkraft_EMail")
-  private String EMail;
+  private String eMail;
 
   @Column(name="Einsatzkraft_KontoInhaber")
-  private String KontoInhaber;
+  private String kontoInhaber;
 
   @Column(name="Einsatzkraft_IBAN")
-  private String Iban;
+  private String iban;
 
   @Column(name="Einsatzkraft_Kreditinstitut")
-  private String Kreditinstitut;
+  private String kreditinstitut;
 
   @Column(name="Einsatzkraft_BIC")
-  private String Bic;
+  private String bic;
 
   @Column(name="Einsatzkraft_Steuernummer")
-  private String Steuernummer;
+  private String steuernummer;
 
   @Column(name="Einsatzkraft_Geburtsort")
-  private String Geburtsort;
+  private String geburtsort;
 
   @Column(name="Einsatzkraft_Vorname")
-  private String Vorname;
+  private String vorname;
 
   @Column(name="Einsatzkraft_HöchsterSchulabschluss")
-  private String HöchsterSchulabschluss;
+  private String höchsterSchulabschluss;
 
   @Column(name="Einsatzkraft_HöchsteBerufsausbildung")
-  private String HöchsteBerufsausbildung;
+  private String höchsteBerufsausbildung;
 
   @Column(name="Einsatzkraft_WöchentlicheArbeitszeit")
-  private String WöchentlicheArbeitszeit;
+  private String wöchentlicheArbeitszeit;
 
   @OneToOne
   private User user;
 
   @Column(name="Einsatzkraft_AnzahlderKinder")
-  private String AnzahlderKinder;
+  private String anzahlderKinder;
 
   @Column(name="Einsatzkraft_Status")
-  private String Status;
+  private String status;
 
 
 

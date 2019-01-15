@@ -20,6 +20,11 @@ public class User {
   public User() {
   }
 
+  @Id
+  @Column(name="ID")
+  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  private Integer id;
+
   @Column(name="username")
   private String username;
 
@@ -32,9 +37,5 @@ public class User {
   @Column(name="portalrecht")
   private String portalrecht;
 
-  @Id
-  @Column(name="ID")
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
-  private Integer id;
 
 }

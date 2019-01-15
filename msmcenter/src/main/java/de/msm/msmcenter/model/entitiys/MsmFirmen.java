@@ -16,59 +16,61 @@ import javax.persistence.Table;
 
 
 public class MsmFirmen {
-  @Column(name="MSMFirmen_Bezeichnung")
-  private String Bezeichnung;
-
-  @Column(name="MSMFirmen_GeschäftsführerVorname")
-  private String GeschäftsführerVorname;
-
-  @Column(name="MSMFirmen_HandelsregisterNr")
-  private String HandelsregisterNr;
-
-  @Column(name="MSMFirmen_SteuerId")
-  private String SteuerId;
-
-  @Column(name="MSMFirmen_Registergericht")
-  private String Registergericht;
-
-  @Column(name="MSMFirmen_IBAN")
-  private String Iban;
-
-  @Column(name="MSMFirmen_BIC")
-  private String Bic;
-
-  @Column(name="MSMFirmen_Logo")
-  private byte[] Logo;
-
-  @Column(name="MSMFirmen_Strasse")
-  private String Strasse;
-
-  @Column(name="MSMFirmen_HausNr")
-  private String HausNr;
-
-  @Column(name="MSMFirmen_PLZ")
-  private String Plz;
-
-  @Column(name="MSMFirmen_Ort")
-  private String Ort;
-
-  @Column(name="MSMFirmen_GeschäftsführerAnrede")
-  private String GeschäftsführerAnrede;
-
-  @Column(name="MSMFirmen_GeschäftsführerNachname")
-  private String GeschäftsführerNachname;
-
-  @Column(name="MSMFirmen_Kreditinstitut")
-  private String Kreditinstitut;
-
-  @Column(name="MSMFirmen_EMail")
-  private String EMail;
-
-  @Column(name="MSMFirmen_Telefon")
-  private String Telefon;
-
   @Id
   @Column(name="ID")
   private Integer id;
+
+  @Column(name="MSMFirmen_Bezeichnung")
+  private String bezeichnung;
+
+  @Column(name="MSMFirmen_GeschäftsführerVorname")
+  private String geschäftsführerVorname;
+
+  @Column(name="MSMFirmen_HandelsregisterNr")
+  private String handelsregisterNr;
+
+  @Column(name="MSMFirmen_SteuerId")
+  private String steuerId;
+
+  @Column(name="MSMFirmen_Registergericht")
+  private String registergericht;
+
+  @Column(name="MSMFirmen_IBAN")
+  private String iban;
+
+  @Column(name="MSMFirmen_BIC")
+  private String bic;
+
+  @Column(name="MSMFirmen_Logo")
+  private byte[] logo;
+
+  @Column(name="MSMFirmen_Strasse")
+  private String strasse;
+
+  @Column(name="MSMFirmen_HausNr")
+  private String hausNr;
+
+  @Column(name="MSMFirmen_PLZ")
+  private String plz;
+
+  @Column(name="MSMFirmen_Ort")
+  private String ort;
+
+  @Column(name="MSMFirmen_GeschäftsführerAnrede")
+  private String geschäftsführerAnrede;
+
+  @Column(name="MSMFirmen_GeschäftsführerNachname")
+  private String geschäftsführerNachname;
+
+  @Column(name="MSMFirmen_Kreditinstitut")
+  private String kreditinstitut;
+
+  @Column(name="MSMFirmen_EMail")
+  private String eMail;
+
+  @Column(name="MSMFirmen_Telefon")
+  private String telefon;
+
+
 
 }

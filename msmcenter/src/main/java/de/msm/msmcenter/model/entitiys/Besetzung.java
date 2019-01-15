@@ -12,34 +12,34 @@ public class Besetzung {
 
 
   @Id
-
   @Column(name = "ID")
   private Integer id;
 
   @Column(name = "Besetzung_Einsatzzeit")
-  private String Einsatzzeit;
+  private String einsatzzeit;
 
   @Column(name = "Besetzung_BestätigungEinsatzkraft")
-  private String BestätigungEinsatzkraft;
+  private String bestätigungEinsatzkraft;
 
   @Column(name = "Besetzung_Pausenzeit")
-  private String Pausenzeit;
+  private String pausenzeit;
 
+  @OneToOne
+  @JoinColumn(name = "ProjektvertragRechnungskunde_ID")
+  private ProjektvertragRechnungskunde projektvertragRechnungskunde;
 
-  @Column(name = "ProjektvertragRechnungskunde_ID")
-  private Integer projektvertragRechnungskundeId;
-
-  @Column(name = "Einsatzkraft_ID")
-  private Integer einsatzkraftId;
+  @OneToOne
+  @JoinColumn(name = "Einsatzkraft_ID")
+  private Einsatzkraft einsatzkraft;
 
   @OneToOne
   private Fläche fläche;
 
   @Column(name = "Besetzung_BestätigungFürRechnung")
-  private String BestätigungFürRechnung;
+  private String bestätigungFürRechnung;
 
   @Column(name = "Besetzung_AnfrageVersendung")
-  private String AnfrageVersendung;
+  private String anfrageVersendung;
 
   @Column(name = "Besetzung_Start")
   private java.sql.Timestamp end;

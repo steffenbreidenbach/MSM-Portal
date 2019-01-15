@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Flaeche suchen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MSMPortal</title>
+    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='/js/moment.min.js'></script>
+    <script src='/js/jquery.min.js'></script>
+    <script src='/js/fullcalendar.min.js'></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/fonts/ionicons.min.css">
@@ -21,11 +26,8 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<div th:replace="/../fragments/einsatzkraftHeader ::navbar" name="header"></div>
-<div class="container" style="margin-top:10%;"></div>
-<div class="text-center"><h1>Personaleinsatzplanung - Aktuelle Flächen :</h1></div>
-<div class="container">
-<table  class="table" id="flaechenTable" style="margin-top:5%">
+<div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<table  class="table" id="flaechenTable" style="margin-top:10%">
     <thead class="thead-dark">
     <tr>
         <th scope="col">#</th>
@@ -38,13 +40,12 @@
     <tbody>
     <tr th:each="flaeche :${flaechen}">
         <th scope="row" th:text="${flaeche.id}"></th>
-        <th><a scope="row" th:href="@{/einsatzkraft/pep/get(id=${flaeche.id})}">Zur Pep</a></th>
+        <th><a scope="row" th:href="@{/admin/pep(id=${flaeche.id})}">Zur Pep</a></th>
         <th scope="row" th:text="${flaeche.getRechnungskundeDifferenzierung().getRechnungskunde().getName()}"></th>
         <th scope="row" th:text="${flaeche.getLeistungskunde().getName()}"></th>
         <th scop="row" th:text="${flaeche.getLeistungskunde().getOrt()}"></th>
     </tr>
     </tbody>
 </table>
-</div>
 </body>
 </html>

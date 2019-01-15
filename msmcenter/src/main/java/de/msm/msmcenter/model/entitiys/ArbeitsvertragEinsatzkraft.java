@@ -2,10 +2,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -17,87 +14,91 @@ public class ArbeitsvertragEinsatzkraft {
   private int id;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Eintrittsdatum")
-  private String Eintrittsdatum;
+  private String eintrittsdatum;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Austrittsdatum")
-  private String Austrittsdatum;
+  private String austrittsdatum;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Urlaubsanspruch")
-  private String Urlaubsanspruch;
+  private String urlaubsanspruch;
 
   @Column(name="ArbeitsvertragEinsatzkraft_WöchentlicheArbeitszeit")
-  private String WöchentlicheArbeitszeit;
+  private String wöchentlicheArbeitszeit;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Arbeitsort")
-  private String Arbeitsort;
+  private String arbeitsort;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Eingruppierung")
-  private String Eingruppierung;
+  private String eingruppierung;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Grundlohn")
-  private String Grundlohn;
+  private String grundlohn;
 
   @Column(name="ArbeitsvertragEinsatzkraft_AT-Zulage")
-  private String At_Zulage;
+  private String at_Zulage;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Zulagen")
-  private String Zulagen;
+  private String zulagen;
 
   @Column(name="ArbeitsvertragEinsatzkraft_VWL-Leistungen")
-  private String _VWL_Leistungen;
+  private String vwlLeistungen;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Gescannt")
-  private String Gescannt;
+  private String gescannt;
 
   @Column(name="ArbeitsvertragEinsatzkraft_MitgliedsbescheinigungKrankenversicherung")
-  private String MitgliedsbescheinigungKrankenversicherung;
+  private String mitgliedsbescheinigungKrankenversicherung;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Sozialversicherungsausweis")
-  private String Sozialversicherungsausweis;
+  private String sozialversicherungsausweis;
 
   @Column(name="ArbeitsvertragEinsatzkraft_VertragVermögenswirksameLeistung")
-  private String VertragVermögenswirksameLeistung;
+  private String vertragVermögenswirksameLeistung;
 
   @Column(name="ArbeitsvertragEinsatzkraft_NachweisElterneigenschaft")
-  private String NachweisElterneigenschaft;
+  private String nachweisElterneigenschaft;
 
   @Column(name="ArbeitsvertragEinsatzkraft_VertragBetrieblicheArbeitsversorgung")
-  private String VertragBetrieblicheArbeitsversorgung;
+  private String vertragBetrieblicheArbeitsversorgung;
 
   @Column(name="ArbeitsvertragEinsatzkraft_ArbeitszeugnisVorherigerArbeitgeber")
-  private String ArbeitszeugnisVorherigerArbeitgeber;
+  private String arbeitszeugnisVorherigerArbeitgeber;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Urlaubsbescheinigung")
-  private String Urlaubsbescheinigung;
+  private String urlaubsbescheinigung;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Zeitarbeitnehmer")
-  private String Zeitarbeitnehmer;
+  private String zeitarbeitnehmer;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Probezeit")
-  private String Probezeit;
+  private String probezeit;
 
   @Column(name="ArbeitsvertragEinsatzkraft_MonatlicheArbeitszeit")
-  private String MonatlicheArbeitszeit;
+  private String monatlicheArbeitszeit;
 
   @Column(name="MItarbeiterVerfügbarkeit_ID")
-  private String mItarbeiterVerfügbarkeitId;
+  private String mitarbeiterVerfügbarkeitId;
 
   @Column(name="ArbeitsvertragEinsatzkraft_AnzahlSollTageWöchentlich")
-  private String AnzahlSollTageWöchentlich;
+  private String anzahlSollTageWöchentlich;
 
   @Column(name="ArbeitsvertragEinsatzkraft_Stundenlohn")
-  private String Stundenlohn;
+  private String stundenlohn;
 
-  @Column(name="Tätigkeit_ID")
-  private Integer tätigkeitId;
+  @OneToOne
+  @JoinColumn(name="Tätigkeit_ID")
+  private Tätigkeit tätigkeit;
 
-  @Column(name="Einsatzkraft_ID")
-  private Integer einsatzkraftId;
+  @OneToOne
+  @JoinColumn(name="Einsatzkraft_ID")
+  private Einsatzkraft einsatzkraft;
 
-  @Column(name="MSMFirmen_ID")
-  private Integer msmFirmenId;
+  @OneToOne
+  @JoinColumn(name="MSMFirmen_ID")
+  private MsmFirmen msmFirmen;
 
-  @Column(name="Fläche_ID")
-  private Integer flächeId;
+  @OneToOne
+  @JoinColumn(name="Fläche_ID")
+  private Fläche fläche;
 
 }

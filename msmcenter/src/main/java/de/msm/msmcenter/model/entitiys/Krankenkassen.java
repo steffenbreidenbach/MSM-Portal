@@ -19,24 +19,24 @@ public class Krankenkassen {
   private Integer id;
 
   @Column(name="Krankenkassen_Name")
-  private String krankenkassenName;
+  private String name;
 
   @Column(name="Krankenkasse_Ort")
-  private String krankenkasseOrt;
+  private String ort;
 
   @Column(name="Krankenkasse_PLZ")
-  private String krankenkassePlz;
+  private String plz;
 
   @Column(name="Krankenkasse_IBAN")
-  private String krankenkasseIban;
+  private String iban;
 
   @Column(name="Krankenkassen_BIC")
-  private String krankenkassenBic;
+  private String bic;
 
   @Column(name="Krankenkasse_SEPA")
-  private short krankenkasseSepa;
+  private short sepa;
 
   @Column(name="Krankenkasse_Bundesland")
-  private String krankenkasseBundesland;
+  private String bundesland;
 
 }

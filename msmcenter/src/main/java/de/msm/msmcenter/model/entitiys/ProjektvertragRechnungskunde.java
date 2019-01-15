@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -32,7 +29,8 @@ public class ProjektvertragRechnungskunde {
   @Column(name="ProjektvertragRechnungskunde_ErstellungsDatum")
   private String ErstellungsDatum;
 
-  @Column(name="RechnungskundeDifferenzierung_ID")
-  private Integer rechnungskundeDifferenzierungId;
+  @OneToOne
+  @JoinColumn(name="RechnungskundeDifferenzierung_ID")
+  private RechnungskundeDifferenzierung rechnungskundeDifferenzierungId;
 
 }

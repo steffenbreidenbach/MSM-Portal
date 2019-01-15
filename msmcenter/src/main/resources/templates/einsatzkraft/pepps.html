@@ -4,11 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link href='/css/fullcalendar.min.css' rel='stylesheet' />
-    <link href='/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    <script src='/js/moment.min.js'></script>
-    <script src='/js/jquery.min.js'></script>
-    <script src='/js/fullcalendar.min.js'></script>
+    <title>MSMPortal</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/fonts/ionicons.min.css">
@@ -25,73 +21,71 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
-<div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
+<div th:replace="/../fragments/einsatzkraftHeader ::navbar" name="header"></div>
 <div class="container" style="margin-top: 10%">
 
     <table id="infotable" class="table table-bordered table-striped table-dark" style="margin-bottom: 5%;width: 150px;height:300px;">
         <tbody>
-            <tr>
-                <th>Zuletzt bearbeite am</th>
-                <td ></td>
-            </tr>
-            <tr>
-                <th>Auftraggeber</th>
-                <td id="rechnungskunde">test</td>
-            </tr>
-            <tr>
-                <th>Kunde</th>
-                <td id="leistungskunde">test</td>
-            </tr>
-            <tr>
-                <th>Standort</th>
-                <td id="ort">test</td>
-            </tr>
-            <tr>
-                <th>Monat</th>
-                <td id="monat"></td>
-            </tr>
-            <tr>
-                <th>Jahr</th>
-                <td id="jahr"></td>
-            </tr>
-            <tr>
-                <th>Flächen-nr</th>
-                <td id="fläche"></td>
-            </tr>
-            <tr>
-                <th>Flächenbetreuung</th>
-                <td></td>
-            </tr>
+        <tr>
+            <th>Zuletzt bearbeite am</th>
+            <td ></td>
+        </tr>
+        <tr>
+            <th>Auftraggeber</th>
+            <td id="rechnungskunde">test</td>
+        </tr>
+        <tr>
+            <th>Kunde</th>
+            <td id="leistungskunde">test</td>
+        </tr>
+        <tr>
+            <th>Standort</th>
+            <td id="ort">test</td>
+        </tr>
+        <tr>
+            <th>Monat</th>
+            <td id="monat"></td>
+        </tr>
+        <tr>
+            <th>Jahr</th>
+            <td id="jahr"></td>
+        </tr>
+        <tr>
+            <th>Flächen-nr</th>
+            <td id="fläche"></td>
+        </tr>
+        <tr>
+            <th>Flächenbetreuung</th>
+            <td></td>
+        </tr>
 
         </tbody>
     </table>
-<table id="datatable" class="table table-striped">
-    <thead>
-    <tr>
-        <td ><a href='javascript:prevMonth()'> &laquo;</a></td>
-        <td colspan=1 class='calendar_head_month' id='calendar_month'>
+    <table id="datatable" class="table table-striped">
+        <thead>
+        <tr>
+            <td ><a href='javascript:prevMonth()'> &laquo;</a></td>
+            <td colspan=1 class='calendar_head_month' id='calendar_month'>
             </td>
-        <td ><a href='javascript:today()'> Aktueller Monat</a></td>
-        <td colspan=1 class='calendar_head_month' id='calendar_month2'>
-        </td>
-        <td ><a href='javascript:nextMonth()'> &raquo;</a></td>
-    </tr>
-    <tr>
-        <th scope="col">Datum</th>
-        <th scope="col">Wochentag</th>
-        <th scope="col">Beginn (Uhrzeit)</th>
-        <th scope="col">Ende (Uhrzeit)</th>
-        <th scope="col">Pause(in Std)</th>
-        <th scope="col">Arbeitszeit</th>
-        <th scope="col">Bemerkung</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
+            <td ><a href='javascript:today()'> Aktueller Monat</a></td>
+            <td colspan=1 class='calendar_head_month' id='calendar_month2'>
+            </td>
+            <td ><a href='javascript:nextMonth()'> &raquo;</a></td>
+        </tr>
+        <tr>
+            <th scope="col">Datum</th>
+            <th scope="col">Wochentag</th>
+            <th scope="col">Beginn (Uhrzeit)</th>
+            <th scope="col">Ende (Uhrzeit)</th>
+            <th scope="col">Pause(in Std)</th>
+            <th scope="col">Arbeitszeit</th>
+            <th scope="col">Bemerkung</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 <script>
     var days = [];
@@ -237,7 +231,7 @@
                     replace(i,j);
                 } else
                 {
-                //    console.log("no "+ new Date(acdate) +" " + dates[j]);
+                    //    console.log("no "+ new Date(acdate) +" " + dates[j]);
                 }
             }
         }
@@ -302,7 +296,6 @@
             date1.getFullYear() == date2.getFullYear();
     }
 </script>
-
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>

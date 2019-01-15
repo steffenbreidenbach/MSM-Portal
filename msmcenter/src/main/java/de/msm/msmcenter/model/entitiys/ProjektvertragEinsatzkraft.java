@@ -3,10 +3,7 @@ package de.msm.msmcenter.model.entitiys;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -24,20 +21,25 @@ public class ProjektvertragEinsatzkraft {
   @Column(name="ProjektvertragEinsatzkraft_Stundensatz")
   private String Stundensatz;
 
-  @Column(name="ProjektvertragRechnungskunde_ID")
-  private Integer projektvertragRechnungskundeId;
+  @OneToOne
+  @JoinColumn(name="ProjektvertragRechnungskunde_ID")
+  private ProjektvertragRechnungskunde projektvertragRechnungskunde;
 
-  @Column(name="Einsatzkraft_ID")
-  private Integer einsatzkraftId;
+  @OneToOne
+  @JoinColumn(name="Einsatzkraft_ID")
+  private Einsatzkraft einsatzkraft;
 
-  @Column(name="Fläche_ID")
-  private Integer flächeId;
+  @OneToOne
+  @JoinColumn(name="Fläche_ID")
+  private Fläche fläche;
 
-  @Column(name="Tätigkeit_ID")
-  private Integer tätigkeitId;
+  @OneToOne
+  @JoinColumn(name="Tätigkeit_ID")
+  private Tätigkeit tätigkeit;
 
-  @Column(name="MSMFirmen_ID")
-  private Integer msmFirmenId;
+  @OneToOne
+  @JoinColumn(name="MSMFirmen_ID")
+  private MsmFirmen msmFirmen;
 
 
 
