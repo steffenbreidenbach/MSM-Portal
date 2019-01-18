@@ -193,13 +193,13 @@ public class AdminController {
 
     @RequestMapping(value = "/kalender/events", method = RequestMethod.GET)
     @ResponseBody
-    public List<Besetzung> allEvents() {
-        Date date = new Date();
-        Date date2 = new Date(2019,0,30);
+    public List<Besetzung> allEvents(int yeahr,int month) {
+        Date date = new Date(yeahr-1900,month,1);
+        Date date2 = new Date(yeahr-1900,month,30);
         System.out.println(date2);
-       // System.out.println(besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date,date2).get(0));
+        System.out.println(besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date,date2));
        // return besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date, date);
-        return besetzungRepository.findAll();
+        return besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1, date,date2);
     }
 
     @RequestMapping(value = "/kalender/fläche", method = RequestMethod.GET)

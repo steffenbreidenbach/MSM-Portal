@@ -77,12 +77,11 @@
         <td align="left"><a href='javascript:prevMonth()'><i class="fa fa-chevron-left" style="margin: 0px 10px 0px;"></i></a></td>
         <td colspan=3 class='calendar_head_month' id='calendar_month'>
             </td>
-        <td><a href='javascript:today()'> Aktueller Monat</a></td>
+        <td><a href='javascript:today()' >Aktueller Monat</a></td>
         <td colspan=3 class='calendar_head_month' id='calendar_month2'>
         </td>
         <td align="right" ><a href='javascript:nextMonth()'><i class="fa fa-chevron-right" style="margin: 0px 10px 0px;"></i></a></td>
     </tr>
-
     <tr>
         <th scope="col">Datum</th>
         <th scope="col">Wochentag</th>
@@ -114,31 +113,17 @@
         "            <div class=\"modal-body\">\n" +
         "                <form>\n" +
         "                    <label>Flächen-ID</label>\n" +
-        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <input class=\"form-control\"  type=\"text\">\n" +
         "                    <label>Einsatzkraft ID</label>\n" +
         "                    <input class=\"form-control\" type=\"text\">\n" +
         "                    <label>Datum</label>\n" +
         "                    <input type=\"text\" class=\"form-control\">\n" +
         "                    <label>LK-Ansprechpartner</label>\n" +
-        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <input class=\"form-control\"  type=\"text\">\n" +
         "                    <label>Start</label>\n" +
         "                    <input class=\"form-control\" type=\"text\">\n" +
         "                    <label>Ende</label>\n" +
         "                    <input class=\"form-control\" type=\"text\">\n" +
-        "                    <div class=\"container\">\n" +
-        "                        <div class=\"row\">\n" +
-        "                            <div class='col-sm-6'>\n" +
-        "                                <div class=\"form-group\">\n" +
-        "                                    <div class='input-group date' id='datetimepicker1'>\n" +
-        "                                        <input type='text' class=\"form-control\" />\n" +
-        "                                        <span class=\"input-group-addon\">\n" +
-        "                        <span class=\"glyphicon glyphicon-calendar\"></span>\n" +
-        "                    </span>\n" +
-        "                                    </div>\n" +
-        "                                </div>\n" +
-        "                            </div>\n" +
-        "                        </div>\n" +
-        "                    </div>\n" +
         "                </form>\n" +
         "            </div>\n" +
         "            <div class=\"modal-footer\"><button class=\"btn btn-light\" type=\"button\" data-dismiss=\"modal\">Schließen</button><button class=\"btn btn-primary\" type=\"button\">Speichern</button></div>\n" +
@@ -155,7 +140,11 @@
     datatable = document.getElementById("datatable");
     getEvents();
     initalize();
-
+    var url_string = window.location.href;//window.location.href
+    console.log(window.location.href);
+    var url = new URL(url_string);
+    var c = url.searchParams.get("c");
+    console.log(c);
     function initalize() {
         clearCalender();
         dates = [];
@@ -242,7 +231,7 @@
 
     function getEvents(){
         var request = new XMLHttpRequest();
-        request.open('GET', '/admin/kalender/events', true);
+        request.open('GET', '/admin/kalender/events?yeahr='+currentYeahr+"&month="+currentMonth, true);
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
                 events = [];
@@ -286,14 +275,19 @@
                 var acdate = acevent.substr(0, acevent.length-5);
                 var newdate = new Date(acdate);
                 if(sameDate(newdate,dates[j])) {
-                    if(dates)
-                    replace(i,j);
+                    if(days[j][4]!== ""){
+                        days.splice(j,0,days[j])
+                        replace(i,j+1,events[i].einsatzkraft)
+                    } else {
+                        replace(i,j,events[i].einsatzkraft);
+
+                    }
                 }
             }
         }
     }
     //tauscht zwei daten miteinander aus
-    function replace(stelledaten,stellearray){
+    function replace(stelledaten,stellearray,einsatzkraft){
         events[stelledaten]
         days[stellearray]
         var array = [];
@@ -306,7 +300,13 @@
         var acevent2 = events[stelledaten].end;
         var acdate2 = acevent2.substr(0, acevent.length-5);
         var newdate2 = new Date(acdate2);
-        array.unshift("0,5",newdate.getHours(),newdate2.getHours());
+        array[6] = einsatzkraft.vorname + " " + einsatzkraft.name;
+        array[3] = "0.5";
+        array[4] = newdate.getHours();
+        array[5] = newdate2.getHours();
+        var x = parseFloat(array[3]);
+        console.log(x);
+        array[2] =  newdate.getHours()-newdate2.getHours()-x;
         days[stellearray] = array;
     }
     //gibt die RechnungskundenInformation an die Tabelle aus
@@ -342,7 +342,7 @@
         return isNaN(dayOfWeek) ? null : ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'][dayOfWeek];
     }
 
-    //Überprüft ob zwei Daten gleich sin
+    //Überprüft ob zwei Daten gleich sind
     function sameDate(date1, date2) {
         return date1.getDate() == date2.getDate() &&
             date1.getMonth() == date2.getMonth() &&

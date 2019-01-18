@@ -24,23 +24,34 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <script>
-        $("#search").keyup(function(){
-            var searchText = $(this).val().toLowerCase();
-            // Show only matching TR, hide rest of them
-            $.each($("#table tbody tr"), function() {
-                if($(this).text().toLowerCase().indexOf(searchText) === -1)
-                    $(this).hide();
-                else
-                    $(this).show();
-            });
-        });
-    </script>
+    <!--    <script>
+      function searchTable() {
+           var input, filter, found, table, tr, td, i, j;
+           input = document.getElementById("myInput");
+           filter = input.value.toUpperCase();
+           table = document.getElementById("myTable");
+           tr = table.getElementsByTagName("tr");
+           for (i = 0; i < tr.length; i++) {
+               td = tr[i].getElementsByTagName("td");
+               for (j = 0; j < td.length; j++) {
+                   if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                       found = true;
+                   }
+               }
+               if (found) {
+                   tr[i].style.display = "";
+                   found = false;
+               } else {
+                   tr[i].style.display = "none";
+               }
+           }
+       }
+   </script> -->
 </head>
 <body>
 <div th:replace="/../fragments/adminHeader ::navbar" name="header"></div>
-<input type="text" id="search" style="margin-top: 10%" placeholder="Type to search..." />
-<table  class="table" id="table" style="margin-top:10%">
+<input type="text" id="myInput" onkeyup="searchTable()" style="margin-top: 10%" placeholder="Eingeben zum suchen.." />
+<table  class="table" id="myTable" style="margin-top:10%">
     <thead class="thead-dark">
     <tr>
         <th scope="col">#</th>
@@ -86,7 +97,7 @@
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 <script src="/js/Profile-Edit-Form.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/foundation.min.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/foundation.min.js"></script>
 </body>
 </html>
