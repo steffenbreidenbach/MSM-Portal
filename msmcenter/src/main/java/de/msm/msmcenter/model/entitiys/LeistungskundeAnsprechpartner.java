@@ -35,11 +35,11 @@ public class LeistungskundeAnsprechpartner {
   @Column(name="LeistungskundeAnsprechpatner_Fax")
   private String fax;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Leistungskunde_ID")
   private Leistungskunde leistungskunde;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="User_ID")
   private User user;
 

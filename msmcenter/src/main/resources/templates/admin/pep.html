@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="/css/Profile-Edit-Form-1.css">
     <link rel="stylesheet" href="/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/bootstrap-datepicker-1/css/bootstrap-datepicker3.css">
+    <script src="/bootstrap-datepicker-1/js/bootstrap-datepicker.js"></script>
+    <button ></button>
 </head>
 
 <body>
@@ -69,23 +72,27 @@
     </table>
 <table id="datatable" class="table table-striped">
     <thead>
+
     <tr>
-        <td ><a href='javascript:prevMonth()'> &laquo;</a></td>
-        <td colspan=1 class='calendar_head_month' id='calendar_month'>
+        <td align="left"><a href='javascript:prevMonth()'><i class="fa fa-chevron-left" style="margin: 0px 10px 0px;"></i></a></td>
+        <td colspan=3 class='calendar_head_month' id='calendar_month'>
             </td>
-        <td ><a href='javascript:today()'> Aktueller Monat</a></td>
-        <td colspan=1 class='calendar_head_month' id='calendar_month2'>
+        <td><a href='javascript:today()'> Aktueller Monat</a></td>
+        <td colspan=3 class='calendar_head_month' id='calendar_month2'>
         </td>
-        <td ><a href='javascript:nextMonth()'> &raquo;</a></td>
+        <td align="right" ><a href='javascript:nextMonth()'><i class="fa fa-chevron-right" style="margin: 0px 10px 0px;"></i></a></td>
     </tr>
+
     <tr>
         <th scope="col">Datum</th>
         <th scope="col">Wochentag</th>
+        <th scope="col">Einsatzkraft</th>
         <th scope="col">Beginn (Uhrzeit)</th>
         <th scope="col">Ende (Uhrzeit)</th>
         <th scope="col">Pause(in Std)</th>
         <th scope="col">Arbeitszeit</th>
         <th scope="col">Bemerkung</th>
+        <th scope="col">Besetzung hinzufügen</th>
     </tr>
     </thead>
     <tbody>
@@ -94,6 +101,51 @@
 </table>
 </div>
 <script>
+    var button = "<button class=\"btn btn-primary\" type=\"button\" data-toggle=\"modal\" data-target=\"#myModal\">Hinzufügen</button>\n" +
+        "<div role=\"dialog\" tabindex=\"-1\" class=\"modal fade\" id=\"myModal\">\n" +
+        "    <div class=\"modal-dialog\" role=\"document\">\n" +
+        "        <div class=\"modal-content\">\n" +
+        "            <div class=\"modal-header\">\n" +
+        "                <h4 class=\"modal-title\">Besetzung hinzufügen</h4>\n" +
+        "                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Schließen\">\n" +
+        "                    <span aria-hidden=\"true\">×</span>\n" +
+        "                </button>\n" +
+        "            </div>\n" +
+        "            <div class=\"modal-body\">\n" +
+        "                <form>\n" +
+        "                    <label>Flächen-ID</label>\n" +
+        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <label>Einsatzkraft ID</label>\n" +
+        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <label>Datum</label>\n" +
+        "                    <input type=\"text\" class=\"form-control\">\n" +
+        "                    <label>LK-Ansprechpartner</label>\n" +
+        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <label>Start</label>\n" +
+        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <label>Ende</label>\n" +
+        "                    <input class=\"form-control\" type=\"text\">\n" +
+        "                    <div class=\"container\">\n" +
+        "                        <div class=\"row\">\n" +
+        "                            <div class='col-sm-6'>\n" +
+        "                                <div class=\"form-group\">\n" +
+        "                                    <div class='input-group date' id='datetimepicker1'>\n" +
+        "                                        <input type='text' class=\"form-control\" />\n" +
+        "                                        <span class=\"input-group-addon\">\n" +
+        "                        <span class=\"glyphicon glyphicon-calendar\"></span>\n" +
+        "                    </span>\n" +
+        "                                    </div>\n" +
+        "                                </div>\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                    </div>\n" +
+        "                </form>\n" +
+        "            </div>\n" +
+        "            <div class=\"modal-footer\"><button class=\"btn btn-light\" type=\"button\" data-dismiss=\"modal\">Schließen</button><button class=\"btn btn-primary\" type=\"button\">Speichern</button></div>\n" +
+        "        </div>\n" +
+        "    </div>\n" +
+        "</div>"
+
     var days = [];
     var events = [];
     var dates = [];
@@ -105,12 +157,13 @@
     initalize();
 
     function initalize() {
+        clearCalender();
         dates = [];
         var date = new Date(currentYeahr,currentMonth,1);
         while (date.getMonth() === currentMonth) {
             dates.push(new Date(date));
             var tag = date.getDate() +"."+(date.getMonth()+1)+"."+date.getFullYear();
-            var alles = ["","","","","",getDayOfWeek(date),tag];
+            var alles = [button,"","","","","","",getDayOfWeek(date),tag];
             days.push(alles);
             date.setDate(date.getDate() + 1);
         }
@@ -128,7 +181,7 @@
         while (date.getMonth() === currentMonth) {
             dates.push(new Date(date));
             var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
-            var alles = [getDayOfWeek(date),tag];
+            var alles = [button,"","","","","","",getDayOfWeek(date),tag];
             days.push(alles);
             date.setDate(date.getDate() + 1);
         }
@@ -148,7 +201,7 @@
         while (date.getMonth() === currentMonth) {
             dates.push(new Date(date));
             var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
-            var alles = [getDayOfWeek(date),tag];
+            var alles = [button,"","","","","","",getDayOfWeek(date),tag];
             days.push(alles);
             date.setDate(date.getDate() + 1);
         }
@@ -166,7 +219,7 @@
         var date = new Date(currentYeahr,currentMonth,1);
         while (date.getMonth() === currentMonth) {
             var tag = date.getDate() +"."+(currentMonth+1)+"."+date.getFullYear();
-            var alles = [getDayOfWeek(date),tag];
+            var alles = [button,"","","","","","",getDayOfWeek(date),tag];
             days.push(alles);
             dates.push(new Date(date));
             date.setDate(date.getDate() + 1);
@@ -233,11 +286,8 @@
                 var acdate = acevent.substr(0, acevent.length-5);
                 var newdate = new Date(acdate);
                 if(sameDate(newdate,dates[j])) {
-                    console.log("yes");
+                    if(dates)
                     replace(i,j);
-                } else
-                {
-                //    console.log("no "+ new Date(acdate) +" " + dates[j]);
                 }
             }
         }
@@ -246,9 +296,9 @@
     function replace(stelledaten,stellearray){
         events[stelledaten]
         days[stellearray]
-        var test = [];
+        var array = [];
         for(var i = 0;i<days[stellearray].length;i++){
-            test.push(days[stellearray][i]);
+            array.push(days[stellearray][i]);
         }
         var acevent = events[stelledaten].start;
         var acdate = acevent.substr(0, acevent.length-5);
@@ -256,11 +306,8 @@
         var acevent2 = events[stelledaten].end;
         var acdate2 = acevent2.substr(0, acevent.length-5);
         var newdate2 = new Date(acdate2);
-        test.unshift("0,5",newdate.getHours(),newdate2.getHours());
-        console.log(test);
-        days[stellearray] = test;
-        console.log(days[stellearray]);
-
+        array.unshift("0,5",newdate.getHours(),newdate2.getHours());
+        days[stellearray] = array;
     }
     //gibt die RechnungskundenInformation an die Tabelle aus
     function getRechnungskundeInformation() {
@@ -301,8 +348,53 @@
             date1.getMonth() == date2.getMonth() &&
             date1.getFullYear() == date2.getFullYear();
     }
-</script>
 
+
+</script>
+<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal" hidden>Hinzufügen</button>
+<div role="dialog" tabindex="-1" class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Besetzung hinzufügen</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Flächen-ID</label>
+                    <input class="form-control" type="text">
+                    <label>Einsatzkraft ID</label>
+                    <input class="form-control" type="text">
+                    <label>Datum</label>
+                    <input type="text" class="form-control">
+                    <label>LK-Ansprechpartner</label>
+                    <input class="form-control" type="text">
+                    <label>Start</label>
+                    <input class="form-control" type="text">
+                    <label>Ende</label>
+                    <input class="form-control" type="text">
+                    <div class="container">
+                        <div class="row">
+                            <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Schließen</button><button class="btn btn-primary" type="button">Speichern</button></div>
+        </div>
+    </div>
+</div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>

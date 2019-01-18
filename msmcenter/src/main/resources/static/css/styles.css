@@ -17,3 +17,8 @@ body {
 table {
     empty-cells: show; !important;
 }
+
+.dropdown-menu > li > a:hover {
+    background-color: red;
+    background-image: none;
+}

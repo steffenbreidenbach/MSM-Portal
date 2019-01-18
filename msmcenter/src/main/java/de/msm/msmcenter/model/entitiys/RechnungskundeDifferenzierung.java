@@ -17,7 +17,7 @@ public class RechnungskundeDifferenzierung {
   @Column(name="RechnungskundeDifferenzierung_Bezeichnung")
   private String rechnungskundeDifferenzierungBezeichnung;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   private Rechnungskunde rechnungskunde;
 
 

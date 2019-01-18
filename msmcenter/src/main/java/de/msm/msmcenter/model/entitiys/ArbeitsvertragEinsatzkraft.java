@@ -85,19 +85,19 @@ public class ArbeitsvertragEinsatzkraft {
   @Column(name="ArbeitsvertragEinsatzkraft_Stundenlohn")
   private String stundenlohn;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Tätigkeit_ID")
   private Tätigkeit tätigkeit;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Einsatzkraft_ID")
   private Einsatzkraft einsatzkraft;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="MSMFirmen_ID")
   private MsmFirmen msmFirmen;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Fläche_ID")
   private Fläche fläche;
 

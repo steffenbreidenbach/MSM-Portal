@@ -21,23 +21,23 @@ public class ProjektvertragEinsatzkraft {
   @Column(name="ProjektvertragEinsatzkraft_Stundensatz")
   private String Stundensatz;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="ProjektvertragRechnungskunde_ID")
   private ProjektvertragRechnungskunde projektvertragRechnungskunde;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Einsatzkraft_ID")
   private Einsatzkraft einsatzkraft;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Fläche_ID")
   private Fläche fläche;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Tätigkeit_ID")
   private Tätigkeit tätigkeit;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="MSMFirmen_ID")
   private MsmFirmen msmFirmen;
 

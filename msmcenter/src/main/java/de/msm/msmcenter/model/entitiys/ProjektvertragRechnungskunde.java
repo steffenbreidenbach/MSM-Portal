@@ -29,7 +29,7 @@ public class ProjektvertragRechnungskunde {
   @Column(name="ProjektvertragRechnungskunde_ErstellungsDatum")
   private String ErstellungsDatum;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="RechnungskundeDifferenzierung_ID")
   private RechnungskundeDifferenzierung rechnungskundeDifferenzierungId;
 

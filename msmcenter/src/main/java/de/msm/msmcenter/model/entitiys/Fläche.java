@@ -17,10 +17,10 @@ public class Fläche {
   @Column(name="Fläche_Name")
   private String flächeName;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   private RechnungskundeDifferenzierung rechnungskundeDifferenzierung;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   private Leistungskunde leistungskunde;
 
 }

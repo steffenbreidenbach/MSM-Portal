@@ -24,11 +24,11 @@ public class RahmenvertragRechnungskunde {
   @Column(name="RahmenvertragRechnungskunde_EingangsDatum")
   private String EingangsDatum;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="MSMFirmen_ID")
   private MsmFirmen msmFirmen;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="RechnungskundeDifferenzierung_ID")
   private RechnungskundeDifferenzierung rechnungskundeDifferenzierung;
 }

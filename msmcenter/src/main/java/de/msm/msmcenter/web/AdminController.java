@@ -213,6 +213,11 @@ public class AdminController {
         model.addAttribute("flaechen",flaechenRepository.findAll());
         return "/admin/suchen/flaechen";
     }
+
+    @RequestMapping("/admin/profil")
+    public String adminProfil(Model model) {
+        return "/admin/profil";
+    }
 }
 
 

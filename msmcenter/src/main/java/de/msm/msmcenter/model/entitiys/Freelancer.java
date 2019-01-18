@@ -22,11 +22,11 @@ public class Freelancer {
   @Column(name="ID")
   private Integer id;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Einsatzkraft_ID")
   private Einsatzkraft einsatzkraft;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="EinsatzkraftFirma_ID")
   private EinsatzkraftFirma einsatzkraftFirma;
 

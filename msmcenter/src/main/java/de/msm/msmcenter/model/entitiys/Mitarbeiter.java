@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Mitarbeiter {
   @Id
   @Column(name="Einsatzkraft_VersicherungsNr")
-  private String sersicherungsNr;
+  private String vsersicherungsNr;
 
   @Column(name="Einsatzkraft_Schwerbehindert")
   private String schwerbehindert;
@@ -26,11 +26,11 @@ public class Mitarbeiter {
 
   @Column(name="ID")
   private Integer id;
-  @Column(name="Einsatzkraft_ID")
 
+  @Column(name="Einsatzkraft_ID")
   private Integer Id;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Krankenkassen_ID")
   private Krankenkassen krankenkassen;
 

@@ -24,7 +24,7 @@ public class Besetzung {
   @Column(name = "Besetzung_Pausenzeit")
   private String pausenzeit;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name = "ProjektvertragRechnungskunde_ID")
   private ProjektvertragRechnungskunde projektvertragRechnungskunde;
 
@@ -32,7 +32,7 @@ public class Besetzung {
   @JoinColumn(name = "Einsatzkraft_ID")
   private Einsatzkraft einsatzkraft;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   private Fläche fläche;
 
   @Column(name = "Besetzung_BestätigungFürRechnung")

@@ -25,7 +25,7 @@
 <div th:replace="/../fragments/einsatzkraftHeader ::navbar" name="header"></div>
 <div class="container" style="margin-top: 10%">
 
-    <table id="infotable" class="table table-bordered table-striped table-dark" style="margin-bottom: 5%;width: 150px;height:300px;">
+    <table id="infotable" class="table table-bordered table-striped table-light" style="margin-bottom: 5%;width: 150px;height:300px;">
         <tbody>
         <tr>
             <th>Zuletzt bearbeite am</th>
@@ -76,6 +76,7 @@
         <tr>
             <th scope="col">Datum</th>
             <th scope="col">Wochentag</th>
+            <th scope="col">Einsatzkraft</th>
             <th scope="col">Beginn (Uhrzeit)</th>
             <th scope="col">Ende (Uhrzeit)</th>
             <th scope="col">Pause(in Std)</th>
@@ -99,6 +100,7 @@
     initalize();
 
     function initalize() {
+        clearCalender();
         dates = [];
         var date = new Date(currentYeahr,currentMonth,1);
         while (date.getMonth() === currentMonth) {
@@ -183,7 +185,7 @@
 
     function getEvents(){
         var request = new XMLHttpRequest();
-        request.open('GET', '/admin/kalender/events', true);
+        request.open('GET', '/einsatzkraft/kalender/events', true);
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
                 events = [];
@@ -217,6 +219,21 @@
                 cell.innerHTML = days[i][j];
             }
         }
+    }
+    //Events für eine bestimmte Fläche und für einen Zeitraum bekommen
+    function getEventsFromTo() {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/einsatzkraft/kalender/events?', true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                events = [];
+                events = JSON.parse(this.response);
+                console.log(events);
+            } else {
+                console.log('error');
+            }
+        }
+        request.send();
     }
 
     //Schreibt in das Day Array die Events für eine Flaeche
@@ -259,7 +276,7 @@
     //gibt die RechnungskundenInformation an die Tabelle aus
     function getRechnungskundeInformation() {
         var request = new XMLHttpRequest();
-        request.open('GET', '/admin/kalender/fläche', true);
+        request.open('GET', '/einsatzkraft/kalender/fläche', true);
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
                 var flächeData = JSON.parse(this.response);

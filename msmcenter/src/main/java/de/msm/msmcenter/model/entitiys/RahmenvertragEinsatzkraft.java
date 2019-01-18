@@ -17,11 +17,11 @@ public class RahmenvertragEinsatzkraft {
   @Column(name = "RahmenvertragEinsatzkraft_Prozzesstatus")
   private String rahmenvertragEinsatzkraftProzzesstatus;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name = "MSMFirmen_ID")
   private MsmFirmen msmFirmen;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="Einsatzkraft_ID")
   private Einsatzkraft einsatzkraft;
 }

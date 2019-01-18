@@ -1,4 +1,4 @@
-<div th:fragment="navbar">
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-light navbar-expand-md fixed-top" style="background-color: rgb(255,255,255);">
         <div class="container-fluid"><a class="navbar-brand" href="dashboard"><img src="/img/MSM_Center-Logo.jpg" style="width: 92px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
@@ -34,7 +34,7 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-envelope-o" style="margin: 0px 10px 0px;"></i></a></li>
                     <li class="nav-item dropdown show"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true" href="#"><i class="fa fa-user"></i></a>
-                        <div role="menu" class="dropdown-menu dropdown-menu-right " style="background-color: rgb(32,136,152);margin: 18px 0px 0px;">
+                        <div role="menu" class="dropdown-menu dropdown-menu-right " style="background-color: rgb(255,255,255);margin: 18px 0px 0px;">
                             <a class="dropdown-item" role="presentation" href="profil">Profil</a>
                             <a class="dropdown-item" role="presentation" href="#">Einstellungen</a>
                             <form action="/logout" method="post">

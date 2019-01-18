@@ -101,7 +101,7 @@ public class Einsatzkraft {
   @Column(name="Einsatzkraft_WöchentlicheArbeitszeit")
   private String wöchentlicheArbeitszeit;
 
-  @OneToOne
+  @OneToOne(cascade = {CascadeType.ALL})
   private User user;
 
   @Column(name="Einsatzkraft_AnzahlderKinder")
