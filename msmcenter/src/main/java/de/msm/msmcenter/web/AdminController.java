@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.sql.Timestamp;
 import java.util.*;
 
 @Controller
@@ -46,18 +45,18 @@ public class AdminController {
 
     @GetMapping("/dashboard")
     public String adminDashboard(Model model) {
-        return "/admin/dashboard";
+        return "admin/dashboard";
     }
 
     @GetMapping("/leistungskunden")
     public String adminLK(Model model) {
-        return "/admin/hinzufuegen/LKAccount";
+        return "admin/hinzufuegen/LKAccount";
     }
 
     @PostMapping("/LKerstellen")
     public String addLK(User user, Model model) {
         userRepository.save(user);
-        return "/admin/hinzufuegen/LKAccount";
+        return "admin/hinzufuegen/LKAccount";
     }
 
     @GetMapping("/erstellen")
@@ -67,18 +66,18 @@ public class AdminController {
             besetzung.setId(i);
             besetzungRepository.save(besetzung);
         }
-        return "/admin/dashboard";
+        return "admin/dashboard";
     }
 
     @GetMapping("/getData")
     public String getData(Model model) {
         model.addAttribute("data", besetzungRepository.findAllByeinsatzkraftId(1));
-        return "/admin/data";
+        return "admin/data";
     }
 
     @GetMapping("/hinzufuegen/LKAccount")
     public String addAcc() {
-        return "/admin/hinzufuegen/LKAccount";
+        return "admin/hinzufuegen/LKAccount";
     }
 
     @GetMapping("/hinzufuegen/einsatzkraft")
@@ -88,7 +87,7 @@ public class AdminController {
 
     @GetMapping("/hinzufuegen/user")
     public String addUser() {
-        return "/admin/hinzufuegen/user";
+        return "admin/hinzufuegen/user";
     }
 
     @PostMapping("/hinzufuegen/user/add")
@@ -97,41 +96,41 @@ public class AdminController {
             userRepository.save(user);
         } catch (Exception e) {
             model.addAttribute("error", "error");
-            return "/admin/hinzufuegen/user";
+            return "admin/hinzufuegen/user";
         }
-        return "/dashboard";
+        return "dashboard";
     }
 
     @RequestMapping("/hinzufuegen/leistungskunde")
     public String leistungskunde() {
-        return "/admin/hinzufuegen/Leistungskunde";
+        return "admin/hinzufuegen/Leistungskunde";
     }
 
     @PostMapping("hinzufuegen/leistungskunde/add")
     public String leinstungskundeHinzufuegen(Leistungskunde leistungskunde) {
         leistungskundeRepository.save(leistungskunde);
-        return "/admin/dashboard";
+        return "admin/dashboard";
     }
 
     @RequestMapping("/hinzufuegen/rechnungskunde")
     public String rechnungskunde() {
-        return "/admin/hinzufuegen/rechnungskunde";
+        return "admin/hinzufuegen/rechnungskunde";
     }
 
     @PostMapping("/hinzufuegen/rechnungskunde/add")
     public String rechnungskundeAdd(Rechnungskunde rechnungskunde) {
         rechnungskundeRepository.save(rechnungskunde);
-        return "/admin/dashboard";
+        return "admin/dashboard";
     }
 
     @RequestMapping("/hinzufuegen/einsatzkraft/festangestellte")
     public String testst() {
-        return "/admin/hinzufuegen/Einsatzkraft";
+        return "admin/hinzufuegen/Einsatzkraft";
     }
 
     @RequestMapping("/hinzufuegen/leistungskundeAk")
     public String leistungskundeAk() {
-        return "/admin/hinzufuegen/Leistungskunde";
+        return "admin/hinzufuegen/Leistungskunde";
     }
 
 
@@ -143,7 +142,7 @@ public class AdminController {
         einsatzkraft.setUser(user);
         userRepository.save(user);
         einsatzkraftRepository.save(einsatzkraft);
-        return "/admin/dashboard";
+        return "admin/dashboard";
     }
 
 
@@ -160,35 +159,35 @@ public class AdminController {
     @RequestMapping("/suchen/leistungskunden")
     public String leistungskundenSuchen(Model model) {
         model.addAttribute("leistungskunden", leistungskundeRepository.findAll());
-        return "/admin/suchen/leistungskunden";
+        return "admin/suchen/leistungskunden";
     }
 
     @RequestMapping("/suchen/einsatzkraft")
     public String einsatzkraftSuche(Model model) {
         model.addAttribute("einsatzkraefte", einsatzkraftRepository.findAll());
-        return "/admin/suchen/einsatzkraft";
+        return "admin/suchen/einsatzkraft";
     }
 
     @RequestMapping("/suchen/rechnungskunden")
     public String rechnungskundenSuchen(Model model) {
         model.addAttribute("rechnungskunden", rechnungskundeRepository.findAll());
-        return "/admin/suchen/rechnungskunden";
+        return "admin/suchen/rechnungskunden";
     }
 
     @RequestMapping("/suchen/admin/rechnungskundendetails")
     public String rechnungskundenSuchen(Integer rechnungskundeID, Model model) {
         model.addAttribute("rechnungskunde", rechnungskundeRepository.findById(rechnungskundeID).get());
-        return "/admin/rechnungskundendetails/rechnungskundendetails";
+        return "admin/rechnungskundendetails/rechnungskundendetails";
     }
 
     @RequestMapping("/testen")
     public String testen() {
-        return "/admin/pep";
+        return "admin/pep";
     }
 
     @RequestMapping("/pep")
     public String pep(){
-        return "/admin/pep";
+        return "admin/pep";
     }
 
     @RequestMapping(value = "/kalender/events", method = RequestMethod.GET)
@@ -211,12 +210,19 @@ public class AdminController {
     @GetMapping("/suchen/flaechen")
     public String searchAllFlaechen(Model model){
         model.addAttribute("flaechen",flaechenRepository.findAll());
-        return "/admin/suchen/flaechen";
+        return "admin/suchen/flaechen";
     }
 
     @RequestMapping("/admin/profil")
     public String adminProfil(Model model) {
-        return "/admin/profil";
+        return "admin/profil";
+    }
+
+
+    @RequestMapping(value = "/hinzufuegen/besetzung" , method = RequestMethod.POST)
+    public String besetzungHinzufuegen(Model model,Besetzung besetzung){
+        besetzungRepository.save(besetzung);
+        return "admin/dashboard";
     }
 }
 

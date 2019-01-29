@@ -13,6 +13,7 @@ public class Besetzung {
 
   @Id
   @Column(name = "ID")
+  @GeneratedValue(strategy= GenerationType.IDENTITY)
   private Integer id;
 
   @Column(name = "Besetzung_Einsatzzeit")
