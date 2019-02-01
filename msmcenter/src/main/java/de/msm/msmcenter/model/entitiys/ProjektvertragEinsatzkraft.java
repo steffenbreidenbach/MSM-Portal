@@ -13,13 +13,13 @@ import javax.persistence.*;
 public class ProjektvertragEinsatzkraft {
   @Id
   @Column(name="ProjektvertragEinsatzkraft_ID")
-  private Integer Id;
+  private Integer id;
 
   @Column(name="ProjektvertragEinsatzkraft_StundenAnzahl")
-  private String StundenAnzahl;
+  private String stundenAnzahl;
 
   @Column(name="ProjektvertragEinsatzkraft_Stundensatz")
-  private String Stundensatz;
+  private String stundensatz;
 
   @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="ProjektvertragRechnungskunde_ID")

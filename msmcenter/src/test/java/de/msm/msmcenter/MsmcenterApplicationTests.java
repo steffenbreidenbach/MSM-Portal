@@ -20,13 +20,4 @@ public class MsmcenterApplicationTests {
 	public void contextLoads() {
 	}
 
-
-	@Test
-	public void bestzungRepository(){
-		Date date = new Date();
-		List<Besetzung> besetzung= besetzungRepository.findAllByFlächeIdAndStartGreaterThanAndEndLessThan(1,date,date);
-		for (Besetzung besetzun:besetzung) {
-			System.out.println(besetzun.getId());
-		}
-	}
 }

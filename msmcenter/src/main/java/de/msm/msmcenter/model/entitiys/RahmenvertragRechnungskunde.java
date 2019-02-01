@@ -13,16 +13,16 @@ public class RahmenvertragRechnungskunde {
   @Id
   private Integer id;
   @Column(name="RahmenvertragRechnungskunde_ErstellungsDatum")
-  private String ErstellungsDatum;
+  private String erstellungsDatum;
 
   @Column(name="RahmenvertragRechnungskunde_UnterzeichnenderAnsprechpartner")
-  private String UnterzeichnenderAnsprechpartner;
+  private String unterzeichnenderAnsprechpartner;
 
   @Column(name="RahmenvertragRechnungskunde_Gescannt")
-  private String Gescannt;
+  private String gescannt;
 
   @Column(name="RahmenvertragRechnungskunde_EingangsDatum")
-  private String EingangsDatum;
+  private String eingangsDatum;
 
   @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="MSMFirmen_ID")

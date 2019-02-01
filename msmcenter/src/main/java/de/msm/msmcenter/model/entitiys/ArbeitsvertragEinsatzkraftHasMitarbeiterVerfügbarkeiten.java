@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class ArbeitsvertragEinsatzkraftHasMitarbeiterVerfügbarkeiten {
   @Id
   @Column(name="ArbeitsvertragEinsatzkraft_ArbeitsvertragEinsatzkraft_ID")
-  private Integer arbeitsvertragEinsatzkraftArbeitsvertragEinsatzkraftId;
+  private Integer arbeitsvertragEinsatzkraftId;
 
   @Column(name="MitarbeiterVerfügbarkeiten_ID")
   private Integer mitarbeiterVerfügbarkeitenId;

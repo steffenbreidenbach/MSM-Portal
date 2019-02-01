@@ -15,19 +15,19 @@ public class ProjektvertragRechnungskunde {
   private Integer id;
 
   @Column(name="ProjektvertragRechnungskunde_Stundensatz")
-  private String Stundensatz;
+  private String stundensatz;
 
   @Column(name="ProjektvertragRechnungskunde_Feedback")
-  private String Feedback;
+  private String feedback;
 
   @Column(name="ProjektvertragRechnungskunde_EingangsDatum")
-  private String EingangsDatum;
+  private String eingangsDatum;
 
   @Column(name="ProjektvertragRechnungskunde_Gescannt")
-  private byte[] Gescannt;
+  private byte[] gescannt;
 
   @Column(name="ProjektvertragRechnungskunde_ErstellungsDatum")
-  private String ErstellungsDatum;
+  private String erstellungsDatum;
 
   @OneToOne(cascade = {CascadeType.ALL})
   @JoinColumn(name="RechnungskundeDifferenzierung_ID")

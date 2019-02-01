@@ -12,22 +12,22 @@
                         <div class="dropdown-menu" role="menu">
                             <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Einsatzkraft</a>
                             <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/einsatzkraft/freelancer">Freelancer</a>
-                                <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/einsatzkraft/festangestellte">Festangestellter</a>
+                                <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/einsatzkraft/freelancer}">Freelancer</a>
+                                <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/einsatzkraft/festangestellte}">Festangestellter</a>
                             </div>
-                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/LKAccount">LK - Account</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/leistungskunde">Leistungskunden</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/rechnungskunde">Rechnungskunden</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/hinzufuegen/user">User</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/LKAccount}">LK - Account</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/leistungskunde}">Leistungskunden</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/rechnungskunde}">Rechnungskunden</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/hinzufuegen/user}">User</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Suchen</a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="/admin/suchen/leistungskunden">Leistungskunden</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/suchen/rechnungskunden">Rechnungskunden</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/suchen/einsatzkraft">Einsatzkraft</a>
-                            <a class="dropdown-item" role="presentation" href="/admin/suchen/flaechen">Flaechen</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/suchen/leistungskunden}">Leistungskunden</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/suchen/rechnungskunden}">Rechnungskunden</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/suchen/einsatzkraft}">Einsatzkraft</a>
+                            <a class="dropdown-item" role="presentation" th:href="@{~/admin/suchen/flaechen}">Flaechen</a>
                         </div>
                     </li>
                 </ul>

@@ -59,7 +59,7 @@ public class AdminController {
         return "admin/hinzufuegen/LKAccount";
     }
 
-    @GetMapping("/erstellen")
+ /*   @GetMapping("/erstellen")
     public String erstelleBesetzung(Model model) {
         for (int i = 685; i < 1500; i++) {
             Besetzung besetzung = new Besetzung();
@@ -68,7 +68,7 @@ public class AdminController {
         }
         return "admin/dashboard";
     }
-
+*/
     @GetMapping("/getData")
     public String getData(Model model) {
         model.addAttribute("data", besetzungRepository.findAllByeinsatzkraftId(1));
